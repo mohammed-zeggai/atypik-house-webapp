@@ -1,4 +1,41 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
-createApp(App).mount('#app')
+import Register from './components/Register.vue';
+import Login from './components/Login.vue';
+import Home from './components/Home.vue';
+import Locations from './components/Locations.vue';
+import LocationDetail from './components/LocationDetail.vue';
+
+const routes = [
+  {
+    path: '/',
+    component: Home
+  },
+  {
+    path: '/register',
+    component: Register
+  },
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/locations',
+    component: Locations
+  },
+  {
+    path: '/location/:id',
+    component: LocationDetail
+  },
+];
+
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes
+});
+
+const app = createApp(App);
+app.use(router);
+app.mount('#app');
