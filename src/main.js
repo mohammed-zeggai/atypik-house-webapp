@@ -9,6 +9,7 @@ import Locations from './components/Locations.vue';
 import LocationDetail from './components/LocationDetail.vue';
 import Profil from './components/Profil.vue';
 import Notification from './components/Notification.vue';
+import CreateLocation from './components/CreateLocation.vue';
 
 const routes = [
   {
@@ -38,6 +39,10 @@ const routes = [
   {
     path: '/profil',
     component: Profil
+  },
+  {
+    path: '/createlocation',
+    component: CreateLocation
   },
 ];
 

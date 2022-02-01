@@ -2,7 +2,7 @@
   <Header />
 
   <!-- Ici on affiche le 'route' actuel -->
-  <router-view/>
+  <router-view />
 
   <footer>
     <p>&copy; ZEGGAI Mohammed - 2022</p>
@@ -10,18 +10,18 @@
 </template>
 
 <script>
-import Header from './components/Header.vue';
+import Header from "./components/Header.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Header
-  }
-}
+    Header,
+  },
+};
 </script>
 
 <style scoped>
 p {
   text-align: center;
-}  
+}
 </style>

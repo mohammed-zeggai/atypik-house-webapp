@@ -10,7 +10,7 @@
           <img
             class="img-account-profile rounded-circle mb-2"
             :src="
-              user.image || 'http://bootdey.com/img/Content/avatar/avatar1.png'
+              location.image || 'http://bootdey.com/img/Content/avatar/avatar1.png'
             "
             alt="User Avatar"
           />
@@ -28,14 +28,14 @@
             type="text"
             id="imgUrl"
             placeholder="URL d'image"
-            v-model="user.image"
+            v-model="location.image"
           />
         </div>
       </div>
     </div>
 
     <div class="col-xl-8">
-      <form @submit="testCurrentPassword">
+      <form @submit="createLocation">
         <div class="card mb-4" style="margin-right: 150px; margin-top: 20px">
           <div class="card-header">Détails du compte</div>
 
@@ -48,8 +48,8 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Nom"
-                v-model="user.nom"
+                placeholder="Titre"
+                v-model="location.titre"
                 required
               />
             </div>
@@ -58,8 +58,8 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Prénom"
-                v-model="user.prenom"
+                placeholder="Type Location"
+                v-model="location.type"
                 required
               />
             </div>
@@ -68,8 +68,9 @@
               <input
                 type="email"
                 class="form-control"
-                placeholder="email@domain.com"
-                v-model="user.email"
+                placeholder="Description"
+                v-model="location.description"
+                maxlength="500"
                 disabled
                 required
               />
@@ -77,10 +78,11 @@
 
             <div class="input-group mb-3">
               <input
-                type="password"
+                type="number"
                 class="form-control"
-                placeholder="Nouveau Mot de passe"
-                v-model="user.newPassword"
+                placeholder="Surface"
+              
+                v-model="location.surface"
               />
             </div>
 
@@ -153,25 +155,24 @@
 
 <script>
 export default {
-  name: "Profil",
+  name: "CreateLocation",
 
   data() {
     return {
-      user: {
-        id: null,
-        nom: "",
-        prenom: "",
-        email: "",
-        newPassword: "",
-        password: "",
+      location: {
+        user: {
+          id: null
+        },
+        titre: "",
+        type: "",
+        description: "",
+        surface: "",
         image: "",
-        dateNaissance: "",
-        telephone: "",
-        adresse: "",
-        role: "ROLE_CLIENT",
+        planning: "",
+        prix: "",
+        adresse: ""
       },
-      badCredentials: false,
-      updated: false,
+      created: false,
     };
   },
 
@@ -180,92 +181,13 @@ export default {
       this.$router.push("/");
       return;
     }
-
-    this.user = JSON.parse(localStorage.getItem("user"));
-
-    // Afficher date naissance
-    if (this.user.dateNaissance != null) {
-      const date = new Date(this.user.dateNaissance);
-      this.user.dateNaissance = date
-        .toISOString("en-US", { month: "2-digit", day: "2-digit" })
-        .split("T")[0];
-    } else {
-      this.user.dateNaissance = "";
-    }
   },
 
   methods: {
-    testCurrentPassword(ev) {
+    createLocation(ev) {
       ev.preventDefault();
 
-      // Construire l'objet de requete
-      const userRequest = {
-        nom: this.user.nom,
-        prenom: this.user.prenom,
-        email: this.user.email,
-        password: this.user.password,
-        image: this.user.image,
-        dateNaissance: this.user.dateNaissance,
-        telephone: this.user.telephone,
-        adresse: this.user.adresse,
-        role: "ROLE_CLIENT",
-      };
-
-      if (this.user.newPassword) {
-        userRequest.password = this.user.newPassword;
-      }
-
-      if (this.user.dateNaissance) {
-        userRequest.dateNaissance = this.user.dateNaissance;
-      }
-
-      if (this.user.telephone) {
-        userRequest.telephone = this.user.telephone;
-      }
-
-      if (this.user.adresse) {
-        userRequest.adresse = this.user.adresse;
-      }
-
-      if (this.user.image) {
-        userRequest.image = this.user.image;
-      }
-
-      // Tester les credentials d'utilisateur
-      fetch(
-        `http://localhost:8080/api/user/testCredentials/${this.user.email}/${this.user.password}`,
-        {
-          method: "GET",
-          headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-        }
-      ).then((response) => {
-        if (response.status == 404) {
-          this.badCredentials = true;
-        } else {
-          this.badCredentials = false;
-          this.updateUser(userRequest);
-        }
-      });
-    },
-
-    updateUser(request) {
-      // Metter à jour l'utilisateur
-      fetch(`http://localhost:8080/api/user/update/${this.user.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-        body: JSON.stringify(request),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          this.updated = true;
-          localStorage.removeItem("user");
-          localStorage.setItem("user", JSON.stringify(data));
-          window.location.reload();
-        });
-    },
+    }
   },
 };
 </script>
@@ -277,8 +199,5 @@ body {
 }
 .card {
   box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
-}
-.img-account-profile {
-  height: 200px;
 }
 </style>

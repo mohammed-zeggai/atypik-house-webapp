@@ -2,9 +2,8 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <!-- Atypik House -->
-        <img src="http://localhost:8081/img/logo.png" alt="Logo" id="logo">
-      </a>
+        <img src="http://localhost:8081/img/logo.png" alt="Logo" id="logo" />
+        </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -14,7 +13,7 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <router-link to="/" class="nav-link">
-              Accueil
+            Accueil
             </router-link>
           </li>
 
@@ -27,12 +26,6 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contactez nous</a>
           </li>
-
-          <li class="nav-item">
-            <router-link to="/notifications" class="nav-link">
-              Notification
-            </router-link>
-          </li>
         </ul>
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -43,7 +36,6 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <!-- L'utilisateur n'est pas connecté -->
               <li v-if="!userConnected">
                 <router-link to="/register" class="dropdown-item">
                   Créer un compte
@@ -55,10 +47,14 @@
                 </router-link>
               </li>
               
-              <!-- L'utilisateur est connecté -->
               <li v-if="userConnected">
                 <router-link to="/profil" class="dropdown-item">
-                  Mon Profil
+                  Mon Compte
+                </router-link>
+              </li>
+               <li v-if="userConnected">
+                <router-link to="/createlocation" class="dropdown-item">
+                  Créer une location
                 </router-link>
               </li>
               <li v-if="userConnected">
@@ -76,21 +72,21 @@
 
 <script>
 export default {
-  name: 'Header',
-  
+  name: "Header",
+
   data() {
     return {
       userConnected: false,
-      userFullName: ''
-    }
+      userFullName: "",
+    };
   },
 
   mounted() {
-    if (localStorage.getItem('user') && localStorage.getItem('token')) {
+    if (localStorage.getItem("user") && localStorage.getItem("token")) {
       this.userConnected = true;
 
-      const user = JSON.parse(localStorage.getItem('user'));
-      this.userFullName = user.nom + ' ' + user.prenom;
+      const user = JSON.parse(localStorage.getItem("user"));
+      this.userFullName = user.nom + " " + user.prenom;
     }
   },
 
@@ -98,14 +94,14 @@ export default {
     logout() {
       localStorage.clear();
       window.location.reload();
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
-<style>
+<style scoped>
 #logo {
-  width: 120px;
-  height: 40px;
+  width: 100px;
+  height: 60px;
 }
 </style>

@@ -12,7 +12,7 @@
     </div>
 
     <div class="row py-lg-5">
-      <h5>Nos derniers locations</h5>
+      <h5>Nos derniers locations:</h5>
 
       <div v-for="location in newestLocations" :key="location.id" class="col-md-4 col-s-12">
         <div class="card">
