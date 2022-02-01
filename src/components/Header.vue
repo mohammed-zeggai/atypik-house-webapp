@@ -1,7 +1,10 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">AtypikHouse</a>
+      <a class="navbar-brand" href="#">
+        <!-- Atypik House -->
+        <img src="http://localhost:8081/img/logo.png" alt="Logo" id="logo">
+      </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -11,7 +14,7 @@
         <ul class="navbar-nav">
           <li class="nav-item">
             <router-link to="/" class="nav-link">
-            Accueil
+              Accueil
             </router-link>
           </li>
 
@@ -24,15 +27,23 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contactez nous</a>
           </li>
+
+          <li class="nav-item">
+            <router-link to="/notifications" class="nav-link">
+              Notification
+            </router-link>
+          </li>
         </ul>
 
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown nav-right">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Mon compte
+              <span v-if="!userConnected">Mon compte</span>
+              <span v-if="userConnected">{{ userFullName }}</span>
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <!-- L'utilisateur n'est pas connecté -->
               <li v-if="!userConnected">
                 <router-link to="/register" class="dropdown-item">
                   Créer un compte
@@ -44,6 +55,7 @@
                 </router-link>
               </li>
               
+              <!-- L'utilisateur est connecté -->
               <li v-if="userConnected">
                 <router-link to="/profil" class="dropdown-item">
                   Mon Profil
@@ -68,13 +80,17 @@ export default {
   
   data() {
     return {
-      userConnected: false
+      userConnected: false,
+      userFullName: ''
     }
   },
 
   mounted() {
     if (localStorage.getItem('user') && localStorage.getItem('token')) {
       this.userConnected = true;
+
+      const user = JSON.parse(localStorage.getItem('user'));
+      this.userFullName = user.nom + ' ' + user.prenom;
     }
   },
 
@@ -88,5 +104,8 @@ export default {
 </script>
 
 <style>
-
+#logo {
+  width: 120px;
+  height: 40px;
+}
 </style>

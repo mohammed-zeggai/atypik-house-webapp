@@ -18,7 +18,7 @@
       </div>
 
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="Prenom" v-model="user.prenom" required>
+        <input type="text" class="form-control" placeholder="Prénom" v-model="user.prenom" required>
       </div>
 
       <div class="input-group mb-3">
@@ -34,8 +34,8 @@
       </div>
 
       <div class="input-group mb-3">
-        <button class="btn btn-success" type="submit">Créer mon compte</button>
-        <button class="btn btn-light" type="reset">Annuler</button>
+        <button style="margin:5px; margin-left:0px" class="btn btn-info" type="submit">Créer mon compte</button>
+        <button style="margin:5px" class="btn btn-secondary" type="reset">Annuler</button>
       </div>
     </form>
   </section>
@@ -72,7 +72,7 @@ export default {
       // Arreter l'evenement de rechargement de la page
       ev.preventDefault();
 
-      // Tester si le password et sa verification son bon
+      // Tester si le password et sa verification sont bons
       if (this.user.password != this.user.passwordVerification) {
         this.passwordsDoNotMatch = true;
         return;
