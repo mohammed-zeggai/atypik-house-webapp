@@ -8,7 +8,7 @@ import Home from './components/Home.vue';
 import Locations from './components/Locations.vue';
 import LocationDetail from './components/LocationDetail.vue';
 import Profil from './components/Profil.vue';
-import Notification from './components/Notification.vue';
+import Reservations from './components/Reservations.vue';
 import CreateLocation from './components/CreateLocation.vue';
 
 const routes = [
@@ -33,15 +33,15 @@ const routes = [
     component: LocationDetail
   },
   {
-    path: '/notifications',
-    component: Notification
+    path: '/reservations',
+    component: Reservations
   },
   {
     path: '/profil',
     component: Profil
   },
   {
-    path: '/createlocation',
+    path: '/create-location',
     component: CreateLocation
   },
 ];

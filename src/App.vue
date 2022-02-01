@@ -5,7 +5,7 @@
   <router-view />
 
   <footer>
-    <p>&copy; ZEGGAI Mohammed - 2022</p>
+    <p id="footer-text">&copy; ZEGGAI Mohammed - 2022</p>
   </footer>
 </template>
 
@@ -20,8 +20,17 @@ export default {
 };
 </script>
 
-<style scoped>
-p {
-  text-align: center;
+<style>
+body {
+  background-color: #f2f6fc;
+  color: #69707a;
+}
+
+#footer-text {
+    text-align: center;
+}
+
+.badgeBtn {
+  cursor: pointer;
 }
 </style>

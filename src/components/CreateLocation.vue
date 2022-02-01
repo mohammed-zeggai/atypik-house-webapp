@@ -5,23 +5,15 @@
         class="card mb-4 mb-xl-0"
         style="margin-left: 150px; margin-top: 20px"
       >
-        <div class="card-header">Photo de profil</div>
+        <div class="card-header">Photo de location</div>
         <div class="card-body text-center">
           <img
-            class="img-account-profile rounded-circle mb-2"
+            class="img-location mb-2"
             :src="
-              location.image || 'http://bootdey.com/img/Content/avatar/avatar1.png'
+              location.image || 'https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg'
             "
             alt="User Avatar"
           />
-
-          <div class="small font-italic text-muted mb-4">
-            JPG ou PNG ne dépassant pas 5 Mo
-          </div>
-
-          <label for="formFile" class="form-label"
-            >Mettre à jour votre photo de profil</label
-          >
 
           <input
             class="form-control"
@@ -37,10 +29,10 @@
     <div class="col-xl-8">
       <form @submit="createLocation">
         <div class="card mb-4" style="margin-right: 150px; margin-top: 20px">
-          <div class="card-header">Détails du compte</div>
+          <div class="card-header">Détails de la location</div>
 
-          <div v-if="updated" class="alert alert-success" role="alert">
-            Votre compte à été mis à jour!
+          <div v-if="created" class="alert alert-success" role="alert">
+            la location à été crée avec succés!
           </div>
 
           <div class="card-body">
@@ -65,15 +57,14 @@
             </div>
 
             <div class="input-group mb-3">
-              <input
-                type="email"
+              <textarea
+                type="text"
                 class="form-control"
                 placeholder="Description"
                 v-model="location.description"
                 maxlength="500"
-                disabled
-                required
-              />
+                required>
+                </textarea>
             </div>
 
             <div class="input-group mb-3">
@@ -90,8 +81,8 @@
               <input
                 type="text"
                 class="form-control"
-                placeholder="Date de naissance : yyyy-mm-dd"
-                v-model="user.dateNaissance"
+                placeholder="Planning"
+                v-model="location.planning"
               />
             </div>
 
@@ -99,8 +90,8 @@
               <input
                 type="telephone"
                 class="form-control"
-                placeholder="Telephone"
-                v-model="user.telephone"
+                placeholder="Prix"
+                v-model="location.prix"
               />
             </div>
 
@@ -109,25 +100,11 @@
                 type="adresse"
                 class="form-control"
                 placeholder="Adresse"
-                v-model="user.adresse"
+                v-model="location.adresse"
               />
             </div>
 
             <hr />
-
-            <div v-if="badCredentials" class="alert alert-danger" role="alert">
-              le mot de passe actuel est incorrecte!
-            </div>
-
-            <div class="input-group mb-3">
-              <input
-                type="password"
-                class="form-control"
-                placeholder="Mot de passe actuel"
-                v-model="user.password"
-                required
-              />
-            </div>
 
             <div class="input-group mb-3">
               <button
@@ -135,7 +112,7 @@
                 type="submit"
                 class="btn btn-info"
               >
-                Mettre à jour
+                Créer
               </button>
 
               <button
@@ -177,7 +154,10 @@ export default {
   },
 
   mounted() {
-    if (!localStorage.getItem("user") && !localStorage.getItem("token")) {
+    const user = JSON.parse(localStorage.getItem("user"));
+    this.location.user.id = user.id;
+
+    if (!localStorage.getItem("user") && !localStorage.getItem("token") || user.role != "ROLE_PROPRIETAIRE") {
       this.$router.push("/");
       return;
     }
@@ -187,17 +167,32 @@ export default {
     createLocation(ev) {
       ev.preventDefault();
 
+      // Créer la location
+      fetch('http://localhost:8080/api/location/create', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+        body: JSON.stringify(this.location)
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        this.created = true;
+      });
     }
   },
 };
 </script>
 
 <style>
-body {
-  background-color: #f2f6fc;
-  color: #69707a;
-}
 .card {
   box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}
+
+.img-location {
+  width: 100%;
+  height: 190px;
+  margin-left: -15px;
 }
 </style>

@@ -1,5 +1,9 @@
 <template>
   <section class="py-5 text-center container">
+    <div v-if="reservationCreated" class="alert alert-success" role="alert">
+      Votre réservation à été envoyé au proprietaire!
+    </div>
+
     {{ location.id }} <br />
     {{ location.titre }} <br />
     {{ location.description }} <br />
@@ -11,15 +15,33 @@
 
     <hr />
 
-    <ol>
-      <h4>Commentaires</h4>
+    <h4>Commentaires</h4>
+    <ul class="list-group">
 
-      <li v-for="comment in locationComments" :key="comment.id">
-        <strong>{{ comment.user.nom }} {{ comment.user.prenom }}</strong
-        >, le {{ new Date(comment.date_ajout).toLocaleDateString() }}: <br />
+      <li class="list-group-item" v-for="comment in locationComments" :key="comment.id">
+        <strong>{{ comment.user.nom }} {{ comment.user.prenom }}</strong>,
+        le {{ new Date(comment.date_ajout).toLocaleDateString("fr-FR", { month: "2-digit", day: "2-digit", year: "numeric" }) }}: <br />
         {{ comment.commentaire }}
+
+        <span v-if="comment.user.id == reservation.user.id" @click="supprimerCommentaire(comment.id)" class="badgeBtn badge bg-danger rounded-pill">Supprimer</span>
       </li>
-    </ol>
+
+      <li class="list-group-item"  v-if="userConnected">
+        <div v-if="commentCreated" class="alert alert-success alert-dismissible fade show" role="alert">
+          Votre commentaire à été publié avec succés!
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <form @submit="submitComment">
+          <textarea id="comment" type="text" v-model="comment.commentaire" required>
+          </textarea>
+
+          <button type="submit" class="btn btn-light">Commenter</button>
+        </form>
+      </li>
+    </ul>
+
+    <button v-if="userConnected" class="btn btn-success" @click="reserveLocation">Réserver</button>
   </section>
 </template>
 
@@ -32,10 +54,26 @@ export default {
       id: null,
       location: {},
       locationComments: [],
+      userConnected: false,
+      comment: {
+        user: { id: null },
+        location: { id: null },
+        commentaire: ''
+      },
+      commentCreated: false,
+      reservation: {
+        user: { id: null },
+        location: { id: null }
+      },
+      reservationCreated: false
     };
   },
 
   mounted() {
+    if (localStorage.getItem("user") && localStorage.getItem("token")) {
+      this.userConnected = true;
+    }
+
     // Récupérer l'id depuis l'url
     this.id = this.$route.params.id;
 
@@ -45,6 +83,15 @@ export default {
       .then((data) => {
         this.location = data;
         this.getLocationComments();
+
+        // Parametrer les requetes
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        this.comment.user.id = user.id;
+        this.comment.location.id = this.location.id;
+
+        this.reservation.user.id = user.id;
+        this.reservation.location.id = this.location.id;
       });
   },
 
@@ -54,11 +101,50 @@ export default {
       fetch(
         "http://localhost:8080/api/commentaire/location/" + this.location.id
       )
-        .then((response) => response.json())
-        .then((data) => {
-          this.locationComments = data;
-        });
+      .then((response) => response.json())
+      .then((data) => {
+        this.locationComments = data;
+      });
     },
+
+    submitComment(ev) {
+      ev.preventDefault();
+
+      fetch(
+        "http://localhost:8080/api/commentaire/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+          body: JSON.stringify(this.comment),
+        }
+      )
+      .then((response) => response.json())
+      .then((data) => {
+        this.commentCreated = true;
+        this.comment.commentaire = '';
+        this.getLocationComments();
+      });
+    },
+
+    reserveLocation() {
+      fetch(
+        "http://localhost:8080/api/reservation/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+          body: JSON.stringify(this.reservation),
+        }
+      )
+      .then((response) => response.json())
+      .then((data) => {
+        this.reservationCreated = true;
+        window.scrollTo(0, 0);
+      });
+    }
   },
 };
 </script>
