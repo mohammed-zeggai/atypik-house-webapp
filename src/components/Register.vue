@@ -1,80 +1,134 @@
 <template>
-  <section class="py-5 text-center container">
-    <div v-if="userCreated" class="alert alert-success" role="alert">
-      Votre compte à été crée avec succes!
-      <router-link to="/login" class="alert-link">Connectez-vous?</router-link>
-    </div>
+  <section
+    class=" 100vh bg-image"
+    style="
+      background-image: url('https://www.wallpaperbetter.com/wallpaper/290/32/975/winter-landscape-river-forest-trees-sky-clouds-snow-1080P-wallpaper.jpg');
+    "
+  >
+  <div v-if="userCreated" class="alert alert-success" role="alert">
+    Votre compte à été crée avec succes!
+    <router-link to="/login" class="alert-link">Connectez-vous?</router-link>
+  </div>
 
-    <div v-if="passwordsDoNotMatch" class="alert alert-danger" role="alert">
-      Le mot de passe doit être identique à sa confirmation
-    </div>
+  <div v-if="passwordsDoNotMatch" class="alert alert-danger" role="alert">
+    Le mot de passe doit être identique à sa confirmation
+  </div>
 
-    <div v-if="errorMessage" class="alert alert-danger" role="alert">
-      {{ errorMessage }}
-    </div>
+  <div v-if="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+   <form @submit="createAccount">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 10px">
+              <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-3">S'inscrire</h2>
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Nom"
+                      v-model="user.nom"
+                      required
+                    />
+                  </div>
 
-    <form @submit="createAccount">
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Nom"
-          v-model="user.nom"
-          required
-        />
-      </div>
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Prénom"
+                      v-model="user.prenom"
+                      required
+                    />
+                  </div>
 
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Prénom"
-          v-model="user.prenom"
-          required
-        />
-      </div>
+                  <div class="input-group mb-3">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="email@domain.com"
+                      v-model="user.email"
+                      required
+                    />
+                  </div>
 
-      <div class="input-group mb-3">
-        <input
-          type="email"
-          class="form-control"
-          placeholder="email@domain.com"
-          v-model="user.email"
-          required
-        />
-      </div>
+                  <div class="input-group mb-3">
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Mot de passe"
+                      v-model="user.password"
+                      required
+                    />
+                  </div>
 
-      <div class="input-group mb-3">
-        <input
-          type="password"
-          class="form-control"
-          placeholder="Mot de passe"
-          v-model="user.password"
-          required
-        />
-      </div>
+                  <div class="input-group mb-3">
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Confirmation Mot de Passe"
+                      v-model="user.passwordVerification"
+                      required
+                    />
+                  </div>
+                
+                  <div class="form-check d-flex justify-content-center mb-3">
+                    <input
+                      class="form-check-input me-2"
+                      type="checkbox"
+                      value=""
+                      id="form2Example3cg"
+                    />
+                    <label class="form-check-label" for="form2Example3g">
+                    Proprétaire
+                    </label>
+                    <input
+                      class="form-check-input me-2"
+                      type="checkbox"
+                      style="margin-left:50px"
+                      value=""
+                      id="form2Example3cg"
+                    />
+                    <label class="form-check-label" for="form2Example3g">
+                    Locataire
+                    </label>
+                  </div>
+                  <div class="form-check d-flex justify-content-center mb-3">
+                    <input
+                      class="form-check-input me-2"
+                      type="checkbox"
+                      value=""
+                      id="form2Example3cg"
+                    />
+                    <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in
+                    <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                  </div>
+                    
+                  <div class="d-flex justify-content-center">
+                    <button style="margin: 5px; margin-left: 0px" 
+                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" 
+                            type="submit">
+                      Créer mon compte
+                    </button>
+                    <button style="margin: 5px" class="btn btn-secondary" type="reset">
+                      Annuler
+                    </button>
+                  </div>
 
-      <div class="input-group mb-3">
-        <input
-          type="password"
-          class="form-control"
-          placeholder="Confirmation Mot de Passe"
-          v-model="user.passwordVerification"
-          required
-        />
-      </div>
-
-      <div class="input-group mb-3">
-        <button
-          style="margin: 5px; margin-left: 0px"
-          class="btn btn-info"
-          type="submit"
-        >
-          Créer mon compte
-        </button>
-        <button style="margin: 5px" class="btn btn-secondary" type="reset">
-          Annuler
-        </button>
+                  <p class="text-center text-muted mt-5 mb-0">
+                    Vous avez déjà un compte ?
+                    <a href="http://localhost:8081/login" class="fw-bold text-body"><u>Se Connecter</u></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </form>
   </section>
@@ -139,3 +193,35 @@ export default {
   },
 };
 </script>
+ <style >
+
+ .checkboxes {
+  text-align:center;
+}
+
+.checkboxes input{
+  margin: 0 20px 0;
+}
+
+.gradient-custom-3 {
+  /* fallback for old browsers */
+  background: #84fab0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+}
+.gradient-custom-4 {
+  /* fallback for old browsers */
+  background: #1df3f3;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(8, 222, 230), rgba(143, 211, 244, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(14, 203, 250), rgb(158, 217, 246))
+}
+ 
+ </style>

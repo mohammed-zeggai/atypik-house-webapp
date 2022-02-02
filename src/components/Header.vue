@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg" id="Nav">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="http://localhost:8081/img/logo.png" alt="Logo" id="logo" />
@@ -28,6 +28,7 @@
           </li>
         </ul>
 
+        
         <!-- Menus -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
@@ -84,6 +85,8 @@
               </li>
             </ul>
           </li>
+
+          
 
           <!-- Menu de notifications -->
           <li v-if="userConnected" class="nav-item dropdown nav-left">
@@ -171,11 +174,25 @@ export default {
 
 <style scoped>
 #logo {
-  width: 100px;
-  height: 60px;
+  width: 130px;
+  height: 73px;
 }
 
 .bell-icon-toggle::after {
   display: none;
+}
+#Nav {
+ /* fallback for old browsers */
+  background: #1df3f3;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(8, 222, 230), rgba(143, 211, 244, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(14, 203, 250), rgb(158, 217, 246))
+}
+
+.container-fluid {
+  color: black;
 }
 </style>

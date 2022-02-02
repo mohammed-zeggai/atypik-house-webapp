@@ -44,6 +44,7 @@ const routes = [
     path: '/create-location',
     component: CreateLocation
   },
+  
 ];
 
 const router = createRouter({
