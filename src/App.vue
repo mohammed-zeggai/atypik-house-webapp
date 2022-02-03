@@ -1,9 +1,9 @@
 <template>
   <Header />
+  
 
   <!-- Ici on affiche le 'route' actuel -->
   <router-view />
-
   <footer classe="footer">
     <!-- Footer -->
     <footer class="text-center text-dark" id="footer-id">

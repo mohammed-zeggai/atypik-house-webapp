@@ -1,12 +1,13 @@
 <template>
   <div class="row">
-    <div class="col-xl-4">
+   
+    <div class="col-xl-4"><br><br><br>
       <div
         class="card mb-4 mb-xl-0"
-        style="margin-left: 150px; margin-top: 20px"
+        style="margin-left: 150px; margin-top: 20px; border-radius: 25px"
       >
         <div class="card-header">Photo de profil</div>
-        <div class="card-body text-center">
+        <div class="card-body text-center"><br><br>
           <img
             class="img-account-profile rounded-circle mb-2"
             :src="
@@ -17,7 +18,7 @@
 
           <div class="small font-italic text-muted mb-4">
             JPG ou PNG ne dépassant pas 5 Mo
-          </div>
+          </div><br>
 
           <label for="formFile" class="form-label"
             >Mettre à jour votre photo de profil</label
@@ -34,9 +35,9 @@
       </div>
     </div>
 
-    <div class="col-xl-8">
+    <div class="col-xl-8"><br><br><br>
       <form @submit="testCurrentPassword">
-        <div class="card mb-4" style="margin-right: 150px; margin-top: 20px">
+        <div class="card mb-4" style="margin-right: 150px; margin-top: 20px; border-radius: 25px">
           <div class="card-header">Détails du compte</div>
 
           <div v-if="updated" class="alert alert-success" role="alert">
@@ -145,7 +146,7 @@
               </button>
             </div>
           </div>
-        </div>
+        </div><br>
       </form>
     </div>
   </div>

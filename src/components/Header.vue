@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg" id="Nav">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="http://localhost:8081/img/logo.png" alt="Logo" id="logo" />
@@ -112,6 +112,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Header",
 
@@ -170,28 +171,37 @@ export default {
     }
   },
 };
+
+
 </script>
 
 <style scoped>
 #logo {
-  width: 130px;
-  height: 73px;
+  width: 107px;
+  height: 57px;
 }
 
 .bell-icon-toggle::after {
   display: none;
 }
-#Nav {
+/*#Nav {
  /* fallback for old browsers */
-  background: #1df3f3;
+  /*background: #1df3f3;
 
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgb(8, 222, 230), rgba(143, 211, 244, 1));
+  /*: -webkit-linear-gradient(to right, rgb(8, 222, 230), rgba(143, 211, 244, 1));
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgb(14, 203, 250), rgb(158, 217, 246))
+  /*background: linear-gradient(to right, rgb(14, 203, 250), rgb(158, 217, 246))
 }
+*/
 
+    @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #1C2331!important;
+            }
+        }
+.view,body,html{height:100%}.navbar{background-color:rgba(0,0,0,.2)}.page-footer,.top-nav-collapse{background-color:#1C2331}@media only screen and (max-width:768px){.navbar{background-color:#1C2331}}
 .container-fluid {
   color: black;
 }

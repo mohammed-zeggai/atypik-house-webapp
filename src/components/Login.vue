@@ -1,42 +1,10 @@
 <template>
-  <!--<section class="py-5 text-center container">
-    <div v-if="badCredentials" class="alert alert-danger" role="alert">
-      L'adresse mail ou le mot de passe sont incorrectes!
-    </div>
-
-    <form @submit="login">
-      <div class="input-group mb-3">
-        <input
-          type="email"
-          id="email"
-          class="form-control"
-          placeholder="email@domain.com"
-          v-model="user.email"
-          required
-        />
-      </div>
-
-      <div class="input-group mb-3">
-        <input
-          type="password"
-          id="password"
-          class="form-control"
-          placeholder="Mot de passe"
-          v-model="user.password"
-          required
-        />
-      </div>
-
-      <div class="input-group mb-3">
-        <button class="btn btn-info" type="submit">Se connecter</button>
-        <button class="btn btn-secondary" type="reset">Annuler</button>
-      </div>
-    </form>
-  </section>!-->
   <section class="vh-100">
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-6 text-black gradient-custom-3">
+        <div class="display-8  col-sm-6 text-black gradient-custom-3"
+        ><br><br>
+          <br><br>
           <div
             class="
               d-flex
@@ -58,57 +26,61 @@
               >
                 L'adresse mail ou le mot de passe sont incorrectes!
               </div>
+            <div class="card1" style="border-radius: 35px">
+              <div class="card-body p-5">
+                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
+                  Se Connecter
+                </h3>
 
-              <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
-                Se Connecter
-              </h3>
+                <div class="input-group mb-3">
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    placeholder="email@domain.com"
+                    v-model="user.email"
+                    required
+                  />
+                </div>
 
-              <div class="input-group mb-3">
-                <input
-                  type="email"
-                  id="email"
-                  class="form-control"
-                  placeholder="email@domain.com"
-                  v-model="user.email"
-                  required
-                />
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    id="password"
+                    class="form-control"
+                    placeholder="Mot de passe"
+                    v-model="user.password"
+                    required
+                  />
+                </div>
+
+                <div class="input-group mb-3">
+                  <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" id="Seconnecter" type="submit">Se connecter</button>
+                  <button class="btn btn-secondary" type="reset">Annuler</button>
+                </div>
+
+                <p class="small mb-5 pb-lg-2">
+                  <a class="text-muted" href="#!">Mot de passe oublier ?</a>
+                </p>
+                <p>
+                    Vous n'avez pas de compte ?
+                  <a href="http://localhost:8081/register" class="link-dark">S'inscrire</a>
+                </p>
               </div>
-
-              <div class="input-group mb-3">
-                <input
-                  type="password"
-                  id="password"
-                  class="form-control"
-                  placeholder="Mot de passe"
-                  v-model="user.password"
-                  required
-                />
               </div>
-
-              <div class="input-group mb-3">
-                <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" type="submit">Se connecter</button>
-                <button class="btn btn-secondary" type="reset">Annuler</button>
-              </div>
-
-              <p class="small mb-5 pb-lg-2">
-                <a class="text-muted" href="#!">Mot de passe oublier ?</a>
-              </p>
-              <p>
-                  Vous n'avez pas de compte ?
-                <a href="http://localhost:8081/register" class="link-info">S'inscrire</a>
-              </p>
             </form>
           </div>
         </div>
         <div class="col-sm-6 px-0 d-none d-sm-block">
           <img
-            src="https://lacabanefieutee.com/wp-content/uploads/2020/01/32ffe4563df8474bca975d5635cfcfea-1080x1200.jpg"
+            src="https://images.pexels.com/photos/8001019/pexels-photo-8001019.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
             alt="Login image"
             class="w-100 vh-100"
             style="object-fit: cover; object-position: left"
           />
         </div>
-      </div>
+        </div>
+      
     </div>
   </section>
 </template>
@@ -196,14 +168,38 @@ CSS .bg-image-vertical {
     height: 100%;
   }
 }
-.gradient-custom-3{
- /* fallback for old browsers */
+.Seconnecter {
+  /* fallback for old browsers */
+  background: #84fab0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    rgba(132, 250, 176, 0.5),
+    rgba(143, 211, 244, 0.5)
+  );
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(
+    to right,
+    rgba(132, 250, 176, 0.5),
+    rgba(143, 211, 244, 0.5)
+  );
+}
+.card1{
+background-color: rgb(225, 243, 246);}
+.gradient-custom-3 {
+  /* fallback for old browsers */
   background: #1df3f3;
 
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgb(8, 222, 230), rgba(143, 211, 244, 1));
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(8, 222, 230),
+    rgba(143, 211, 244, 1)
+  );
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgb(14, 203, 250), rgb(158, 217, 246))
+  background: linear-gradient(to right, rgb(14, 203, 250), rgb(158, 217, 246));
 }
 </style>

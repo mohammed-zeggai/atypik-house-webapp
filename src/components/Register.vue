@@ -1,6 +1,6 @@
 <template>
   <section
-    class=" 100vh bg-image"
+    class="100vh bg-image"
     style="
       background-image: url('https://www.wallpaperbetter.com/wallpaper/290/32/975/winter-landscape-river-forest-trees-sky-clouds-snow-1080P-wallpaper.jpg');
     "
@@ -17,12 +17,12 @@
   <div v-if="errorMessage" class="alert alert-danger" role="alert">
     {{ errorMessage }}
   </div>
-   <form @submit="createAccount">
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-      <div class="container h-100">
+   <form @submit="createAccount" class="gradient-custom-3"><br><br><br>
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container h-100 ">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-            <div class="card" style="border-radius: 10px">
+            <div class="card" style="border-radius: 45px; height: 800px;">
               <div class="card-body p-5">
                 <h2 class="text-uppercase text-center mb-3">S'inscrire</h2>
                   <div class="input-group mb-3">
@@ -198,12 +198,14 @@ export default {
  .checkboxes {
   text-align:center;
 }
-
+.card{
+  background-color: rgb(225, 242, 246);
+}
 .checkboxes input{
   margin: 0 20px 0;
 }
 
-.gradient-custom-3 {
+.gradient-custom-3{
   /* fallback for old browsers */
   background: #84fab0;
 
@@ -215,13 +217,13 @@ export default {
 }
 .gradient-custom-4 {
   /* fallback for old browsers */
-  background: #1df3f3;
+  background: #84fab0;
 
   /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgb(8, 222, 230), rgba(143, 211, 244, 1));
+  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgb(14, 203, 250), rgb(158, 217, 246))
+  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
 }
  
  </style>
