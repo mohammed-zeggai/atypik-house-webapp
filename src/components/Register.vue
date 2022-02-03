@@ -1,136 +1,204 @@
 <template>
-  <section
-    class="100vh bg-image"
-    style="
-      background-image: url('https://www.wallpaperbetter.com/wallpaper/290/32/975/winter-landscape-river-forest-trees-sky-clouds-snow-1080P-wallpaper.jpg');
-    "
-  >
-  <div v-if="userCreated" class="alert alert-success" role="alert">
-    Votre compte à été crée avec succes!
-    <router-link to="/login" class="alert-link">Connectez-vous?</router-link>
-  </div>
+  <section class="vh-100">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="display-8 col-md-6 col-sm-6 text-black gradient-custom-3">
+          <br><br>
+          <div
+            class="
+              d-flex
+              align-items
+              h-custom-2
+              px-5
+              ms-xl-2
+              mt-5
+              pt-5 pt-xl-0
+              mt-xl-n5
+              height-70-percent
+            "
+          >
+            <form @submit="createAccount" ref="formData" style="margin: auto;">
+              <div class="container h-100">
+                <div
+                  class="card1"
+                  style="border-radius: 4px"
+                >
+                  <div class="card-body p-5 padding-10">
+                    <div
+                      v-if="userCreated"
+                      class="alert alert-success"
+                      role="alert"
+                    >
+                      Votre compte à été crée avec succes!
+                      <router-link to="/login" class="alert-link"
+                        >Connectez-vous?</router-link
+                      >
+                    </div>
 
-  <div v-if="passwordsDoNotMatch" class="alert alert-danger" role="alert">
-    Le mot de passe doit être identique à sa confirmation
-  </div>
+                    <div
+                      v-if="passwordsDoNotMatch"
+                      class="alert alert-danger"
+                      role="alert"
+                    >
+                      Le mot de passe doit être identique à sa
+                      confirmation
+                    </div>
 
-  <div v-if="errorMessage" class="alert alert-danger" role="alert">
-    {{ errorMessage }}
-  </div>
-   <form @submit="createAccount" class="gradient-custom-3"><br><br><br>
-    <div class="mask d-flex align-items-center h-100">
-      <div class="container h-100 ">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-            <div class="card" style="border-radius: 45px; height: 800px;">
-              <div class="card-body p-5">
-                <h2 class="text-uppercase text-center mb-3">S'inscrire</h2>
-                  <div class="input-group mb-3">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Nom"
-                      v-model="user.nom"
-                      required
-                    />
-                  </div>
+                    <div
+                      v-if="errorMessage"
+                      class="alert alert-danger"
+                      role="alert"
+                    >
+                      {{ errorMessage }}
+                    </div>
 
-                  <div class="input-group mb-3">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Prénom"
-                      v-model="user.prenom"
-                      required
-                    />
-                  </div>
+                    <h2 class="text-uppercase text-center mb-3">
+                      S'inscrire
+                    </h2>
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Nom"
+                        v-model="user.nom"
+                        required
+                      />
+                    </div>
 
-                  <div class="input-group mb-3">
-                    <input
-                      type="email"
-                      class="form-control"
-                      placeholder="email@domain.com"
-                      v-model="user.email"
-                      required
-                    />
-                  </div>
+                    <div class="input-group mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Prénom"
+                        v-model="user.prenom"
+                        required
+                      />
+                    </div>
 
-                  <div class="input-group mb-3">
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Mot de passe"
-                      v-model="user.password"
-                      required
-                    />
-                  </div>
+                    <div class="input-group mb-3">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="email@domain.com"
+                        v-model="user.email"
+                        required
+                      />
+                    </div>
 
-                  <div class="input-group mb-3">
-                    <input
-                      type="password"
-                      class="form-control"
-                      placeholder="Confirmation Mot de Passe"
-                      v-model="user.passwordVerification"
-                      required
-                    />
-                  </div>
-                
-                  <div class="form-check d-flex justify-content-center mb-3">
-                    <input
-                      class="form-check-input me-2"
-                      type="checkbox"
-                      value=""
-                      id="form2Example3cg"
-                    />
-                    <label class="form-check-label" for="form2Example3g">
-                    Proprétaire
-                    </label>
-                    <input
-                      class="form-check-input me-2"
-                      type="checkbox"
-                      style="margin-left:50px"
-                      value=""
-                      id="form2Example3cg"
-                    />
-                    <label class="form-check-label" for="form2Example3g">
-                    Locataire
-                    </label>
-                  </div>
-                  <div class="form-check d-flex justify-content-center mb-3">
-                    <input
-                      class="form-check-input me-2"
-                      type="checkbox"
-                      value=""
-                      id="form2Example3cg"
-                    />
-                    <label class="form-check-label" for="form2Example3g">
-                    I agree all statements in
-                    <a href="#!" class="text-body"><u>Terms of service</u></a>
-                  </label>
-                  </div>
-                    
-                  <div class="d-flex justify-content-center">
-                    <button style="margin: 5px; margin-left: 0px" 
-                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" 
-                            type="submit">
-                      Créer mon compte
-                    </button>
-                    <button style="margin: 5px" class="btn btn-secondary" type="reset">
-                      Annuler
-                    </button>
-                  </div>
+                    <div class="input-group mb-3">
+                      <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Mot de passe"
+                        v-model="user.password"
+                        required
+                      />
+                    </div>
 
-                  <p class="text-center text-muted mt-5 mb-0">
-                    Vous avez déjà un compte ?
-                    <a href="http://localhost:8081/login" class="fw-bold text-body"><u>Se Connecter</u></a>
-                  </p>
+                    <div class="input-group mb-3">
+                      <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Confirmation Mot de Passe"
+                        v-model="user.passwordVerification"
+                        required
+                      />
+                    </div>
+
+                    <div
+                      class="
+                        form-check
+                        d-flex
+                        justify-content-center
+                        mb-3
+                      "
+                    >
+                      <input
+                        class="form-check-input me-2"
+                        type="checkbox"
+                        v-model="user.isProprietaire"
+                        id="isProprietaire"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="isProprietaire"
+                      >
+                        Propriétaire
+                      </label>
+                    </div>
+
+                    <div
+                      class="
+                        form-check
+                        d-flex
+                        justify-content-center
+                        mb-3
+                      "
+                    >
+                      <input
+                        class="form-check-input me-2"
+                        type="checkbox"
+                        value=""
+                        id="conditionsGenerales"
+                        required
+                      />
+                      <label
+                        class="form-check-label"
+                        for="conditionsGenerales"
+                      >
+                        I agree all statements in
+                        <a href="#!" class="text-body"
+                          ><u>Terms of service</u></a
+                        >
+                      </label>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                      <button
+                        style="margin: 5px; margin-left: 0px"
+                        class="
+                          btn btn-success btn-block btn-lg
+                          gradient-custom-4
+                          text-body
+                        "
+                        type="submit"
+                      >
+                        Créer mon compte
+                      </button>
+                      <button
+                        style="margin: 5px"
+                        class="btn btn-secondary"
+                        type="reset"
+                      >
+                        Annuler
+                      </button>
+                    </div>
+
+                    <p class="text-center text-muted mt-5 mb-0">
+                      Vous avez déjà un compte ?
+                      <a
+                        href="http://localhost:8081/login"
+                        class="fw-bold text-body"
+                        ><u>Se Connecter</u></a
+                      >
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
+
+        <div class="col-sm-6 px-0 d-none d-sm-block">
+          <img
+            src="https://images.pexels.com/photos/8001019/pexels-photo-8001019.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            alt="Login image"
+            class="w-100 vh-100"
+            style="object-fit: cover; object-position: left"
+          />
+        </div>
       </div>
-    </form>
+    </div>
   </section>
 </template>
 
@@ -146,6 +214,7 @@ export default {
         email: "",
         password: "",
         passwordVerification: "",
+        isProprietaire: false,
         role: "ROLE_CLIENT",
       },
       userCreated: false,
@@ -175,6 +244,12 @@ export default {
       this.passwordsDoNotMatch = false;
       delete this.user.passwordVerification;
 
+      // Tester si l'utilisateur est un proprietaire
+      if (this.user.isProprietaire) {
+        this.user.role = "ROLE_PROPRIETAIRE";
+        delete this.user.isProprietaire;
+      }
+
       // Creation de l'utilisateur
       fetch("http://localhost:8080/api/user/create", {
         method: "POST",
@@ -193,37 +268,3 @@ export default {
   },
 };
 </script>
- <style >
-
- .checkboxes {
-  text-align:center;
-}
-.card{
-  background-color: rgb(225, 242, 246);
-}
-.checkboxes input{
-  margin: 0 20px 0;
-}
-
-.gradient-custom-3{
-  /* fallback for old browsers */
-  background: #84fab0;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-}
-.gradient-custom-4 {
-  /* fallback for old browsers */
-  background: #84fab0;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-}
- 
- </style>

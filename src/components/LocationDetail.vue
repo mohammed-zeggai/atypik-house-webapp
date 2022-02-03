@@ -1,15 +1,11 @@
 <template>
   <section class="py-5 text-center container">
-    <div v-if="reservationCreated" class="alert alert-success" role="alert">
-      Votre réservation à été envoyé au proprietaire!
-    </div>
-
     {{ location.id }} <br />
     {{ location.titre }} <br />
     {{ location.description }} <br />
     {{ location.prix }} <br />
     <img
-      src="https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg"
+      :src="location.image || 'https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg'"
     /><br />
     {{ location.prix }} <br />
 
@@ -41,7 +37,7 @@
       </li>
     </ul>
 
-    <button v-if="userConnected" class="btn btn-success" @click="reserveLocation">Réserver</button>
+    <router-link v-if="userConnected" :to="`/payment/${id}`" class="btn btn-success">Réserver</router-link>
   </section>
 </template>
 
@@ -60,12 +56,7 @@ export default {
         location: { id: null },
         commentaire: ''
       },
-      commentCreated: false,
-      reservation: {
-        user: { id: null },
-        location: { id: null }
-      },
-      reservationCreated: false
+      commentCreated: false
     };
   },
 
@@ -89,9 +80,6 @@ export default {
 
         this.comment.user.id = user.id;
         this.comment.location.id = this.location.id;
-
-        this.reservation.user.id = user.id;
-        this.reservation.location.id = this.location.id;
       });
   },
 
@@ -127,22 +115,16 @@ export default {
         this.getLocationComments();
       });
     },
-
-    reserveLocation() {
-      fetch(
-        "http://localhost:8080/api/reservation/create", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + localStorage.getItem("token"),
-          },
-          body: JSON.stringify(this.reservation),
-        }
-      )
+    
+    supprimerCommentaire(id) {
+      fetch(`http://localhost:8080/api/commentaire/delete/${id}`, {
+        method: "DELETE",
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+      })
       .then((response) => response.json())
       .then((data) => {
-        this.reservationCreated = true;
-        window.scrollTo(0, 0);
+        alert("Commentaire supprimée!");
+        this.getLocationComments();
       });
     }
   },

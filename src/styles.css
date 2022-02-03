@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+}
+
+body,
+html {
+    height: 100%;
+    background: #ecf0f1;
+    color: #69707a;
+}
+
+.view,
+body,
+html {
+    height: 100%
+}
+
+.footer-text {
+    text-align: center;
+}
+
+#footer-id {
+    background: #1df3f3;
+    background: -webkit-linear-gradient(to right, rgb(8, 222, 230), rgba(143, 211, 244, 1));
+    background: linear-gradient(to right, rgb(14, 203, 250), rgb(158, 217, 246))
+}
+
+.badgeBtn {
+    cursor: pointer;
+}
+
+.content {
+    margin-top: 50px;
+}
+
+.checkboxes {
+    text-align: center;
+}
+
+.card {
+    background-color: rgb(225, 242, 246);
+}
+
+.checkboxes input {
+    margin: 0 20px 0;
+}
+
+.gradient-custom-3 {
+    background: #84fab0;
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+}
+
+.gradient-custom-4 {
+    background: #84fab0;
+    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+}
+
+#First {
+    background-image: url("https://images.pexels.com/photos/2734166/pexels-photo-2734166.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.col-md-4 {
+    margin-bottom: 20px;
+}
+
+#logo {
+    width: 107px;
+    height: 57px;
+}
+
+.bell-icon-toggle::after {
+    display: none;
+}
+
+
+@media (min-width: 800px) and (max-width: 850px) {
+    .navbar:not(.top-nav-collapse) {
+        background: #1C2331 !important;
+    }
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, .2)
+}
+
+.page-footer,
+.top-nav-collapse {
+    background-color: #1C2331
+}
+
+@media only screen and (max-width:768px) {
+    .navbar {
+        background-color: #1C2331
+    }
+}
+
+.container-fluid {
+    color: black;
+}
+
+button {
+    margin: 5px;
+}
+
+.bg-image-vertical {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+}
+
+@media (min-width: 1025px) {
+    .h-custom-2 {
+        height: 100%;
+    }
+}
+
+.Seconnecter {
+    background: #84fab0;
+    background: -webkit-linear-gradient(to right,
+            rgba(132, 250, 176, 0.5),
+            rgba(143, 211, 244, 0.5));
+    background: linear-gradient(to right,
+            rgba(132, 250, 176, 0.5),
+            rgba(143, 211, 244, 0.5));
+}
+
+.card1 {
+    background-color: #f1f2f6 !important;
+}
+
+.card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}
+
+.img-location {
+    width: 100%;
+    height: 200px;
+}
+
+.img-account-profile {
+    height: 200px;
+}
+
+.height-70-percent {
+    height: 70% !important;
+}
+
+.padding-10 {
+    padding: 30px !important;
+}
+
+.listing-item:not(:last-child) {
+    border-bottom: 1px solid silver;
+    margin-bottom: 5px;
+    padding: 5px;
+}

@@ -34,8 +34,8 @@
         class="col-md-4 col-s-12"
       >
          
-        <div class="card" style="border-radius: 25px">
-          <div class="card-body p-5">
+        <div class="card" style="border-radius: 4px">
+          <div>
             <img
               src="https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg"
               class="card-img-top"

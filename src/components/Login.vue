@@ -15,10 +15,10 @@
               mt-5
               pt-5 pt-xl-0
               mt-xl-n5
-
+              height-70-percent
             "
           >
-            <form @submit="login" style="width: 500px">
+            <form @submit="login" style="width: 500px; margin: auto;">
               <div
                 v-if="badCredentials"
                 class="alert alert-danger"
@@ -26,51 +26,53 @@
               >
                 L'adresse mail ou le mot de passe sont incorrectes!
               </div>
-            <div class="card1" style="border-radius: 35px">
-              <div class="card-body p-5">
-                <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
-                  Se Connecter
-                </h3>
 
-                <div class="input-group mb-3">
-                  <input
-                    type="email"
-                    id="email"
-                    class="form-control"
-                    placeholder="email@domain.com"
-                    v-model="user.email"
-                    required
-                  />
+              <div class="card1" style="border-radius: 4px">
+                <div class="card-body p-5">
+                  <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
+                    Se Connecter
+                  </h3>
+
+                  <div class="input-group mb-3">
+                    <input
+                      type="email"
+                      id="email"
+                      class="form-control"
+                      placeholder="email@domain.com"
+                      v-model="user.email"
+                      required
+                    />
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <input
+                      type="password"
+                      id="password"
+                      class="form-control"
+                      placeholder="Mot de passe"
+                      v-model="user.password"
+                      required
+                    />
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" id="Seconnecter" type="submit">Se connecter</button>
+                    <button class="btn btn-secondary" type="reset">Annuler</button>
+                  </div>
+
+                  <p class="small mb-5 pb-lg-2">
+                    <a class="text-muted" href="#!">Mot de passe oublier ?</a>
+                  </p>
+                  <p>
+                      Vous n'avez pas de compte ?
+                    <a href="http://localhost:8081/register" class="link-dark">S'inscrire</a>
+                  </p>
                 </div>
-
-                <div class="input-group mb-3">
-                  <input
-                    type="password"
-                    id="password"
-                    class="form-control"
-                    placeholder="Mot de passe"
-                    v-model="user.password"
-                    required
-                  />
-                </div>
-
-                <div class="input-group mb-3">
-                  <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" id="Seconnecter" type="submit">Se connecter</button>
-                  <button class="btn btn-secondary" type="reset">Annuler</button>
-                </div>
-
-                <p class="small mb-5 pb-lg-2">
-                  <a class="text-muted" href="#!">Mot de passe oublier ?</a>
-                </p>
-                <p>
-                    Vous n'avez pas de compte ?
-                  <a href="http://localhost:8081/register" class="link-dark">S'inscrire</a>
-                </p>
-              </div>
               </div>
             </form>
           </div>
         </div>
+
         <div class="col-sm-6 px-0 d-none d-sm-block">
           <img
             src="https://images.pexels.com/photos/8001019/pexels-photo-8001019.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
@@ -79,8 +81,7 @@
             style="object-fit: cover; object-position: left"
           />
         </div>
-        </div>
-      
+      </div>
     </div>
   </section>
 </template>
@@ -149,57 +150,3 @@ export default {
   },
 };
 </script>
-
-<style scoped >
-button {
-  margin: 5px;
-}
-
-CSS .bg-image-vertical {
-  position: relative;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: auto 100%;
-}
-
-@media (min-width: 1025px) {
-  .h-custom-2 {
-    height: 100%;
-  }
-}
-.Seconnecter {
-  /* fallback for old browsers */
-  background: #84fab0;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(
-    to right,
-    rgba(132, 250, 176, 0.5),
-    rgba(143, 211, 244, 0.5)
-  );
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(
-    to right,
-    rgba(132, 250, 176, 0.5),
-    rgba(143, 211, 244, 0.5)
-  );
-}
-.card1{
-background-color: rgb(225, 243, 246);}
-.gradient-custom-3 {
-  /* fallback for old browsers */
-  background: #1df3f3;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(
-    to right,
-    rgb(8, 222, 230),
-    rgba(143, 211, 244, 1)
-  );
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgb(14, 203, 250), rgb(158, 217, 246));
-}
-</style>

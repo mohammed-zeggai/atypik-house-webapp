@@ -1,155 +1,156 @@
 <template>
-  <div class="row">
-   
-    <div class="col-xl-4"><br><br><br>
-      <div
-        class="card mb-4 mb-xl-0"
-        style="margin-left: 150px; margin-top: 20px; border-radius: 25px"
-      >
-        <div class="card-header">Photo de profil</div>
-        <div class="card-body text-center"><br><br>
-          <img
-            class="img-account-profile rounded-circle mb-2"
-            :src="
-              user.image || 'http://bootdey.com/img/Content/avatar/avatar1.png'
-            "
-            alt="User Avatar"
-          />
+  <section class="py-5 text-center container-fluid">
+    <div class="row">
+      <div class="col-xl-4"><br>
+        <div
+          class="card mb-4 mb-xl-0"
+          style="margin-left: 150px; margin-top: 20px; border-radius: 4px"
+        >
+          <div class="card-header">Photo de profil</div>
+          <div class="card-body text-center"><br>
+            <img
+              class="img-account-profile rounded-circle mb-2"
+              :src="
+                user.image || 'http://bootdey.com/img/Content/avatar/avatar1.png'
+              "
+              alt="User Avatar"
+            />
 
-          <div class="small font-italic text-muted mb-4">
-            JPG ou PNG ne dépassant pas 5 Mo
-          </div><br>
+            <div class="small font-italic text-muted mb-4">
+              JPG ou PNG ne dépassant pas 5 Mo
+            </div><br>
 
-          <label for="formFile" class="form-label"
-            >Mettre à jour votre photo de profil</label
-          >
+            <label for="formFile" class="form-label"
+              >Mettre à jour votre photo de profil</label
+            >
 
-          <input
-            class="form-control"
-            type="text"
-            id="imgUrl"
-            placeholder="URL d'image"
-            v-model="user.image"
-          />
+            <input
+              class="form-control"
+              type="text"
+              id="imgUrl"
+              placeholder="URL d'image"
+              v-model="user.image"
+            />
+          </div>
         </div>
       </div>
+
+      <div class="col-xl-8"><br>
+        <form @submit="testCurrentPassword">
+          <div class="card mb-4" style="margin-right: 150px; margin-top: 20px; border-radius: 4px">
+            <div class="card-header">Détails du compte</div>
+
+            <div v-if="updated" class="alert alert-success" role="alert">
+              Votre compte à été mis à jour!
+            </div>
+
+            <div class="card-body">
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Nom"
+                  v-model="user.nom"
+                  required
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Prénom"
+                  v-model="user.prenom"
+                  required
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="email@domain.com"
+                  v-model="user.email"
+                  disabled
+                  required
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Nouveau Mot de passe"
+                  v-model="user.newPassword"
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Date de naissance : yyyy-mm-dd"
+                  v-model="user.dateNaissance"
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <input
+                  type="telephone"
+                  class="form-control"
+                  placeholder="Telephone"
+                  v-model="user.telephone"
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <input
+                  type="adresse"
+                  class="form-control"
+                  placeholder="Adresse"
+                  v-model="user.adresse"
+                />
+              </div>
+
+              <hr />
+
+              <div v-if="badCredentials" class="alert alert-danger" role="alert">
+                le mot de passe actuel est incorrecte!
+              </div>
+
+              <div class="input-group mb-3">
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Mot de passe actuel"
+                  v-model="user.password"
+                  required
+                />
+              </div>
+
+              <div class="input-group mb-3">
+                <button
+                  style="margin: 5px; margin-left: 0px"
+                  type="submit"
+                  class="btn btn-info"
+                >
+                  Mettre à jour
+                </button>
+
+                <button
+                  style="margin: 5px"
+                  class="btn btn-secondary"
+                  type="reset"
+                >
+                  Annuler
+                </button>
+              </div>
+            </div>
+          </div><br>
+        </form>
+      </div>
     </div>
-
-    <div class="col-xl-8"><br><br><br>
-      <form @submit="testCurrentPassword">
-        <div class="card mb-4" style="margin-right: 150px; margin-top: 20px; border-radius: 25px">
-          <div class="card-header">Détails du compte</div>
-
-          <div v-if="updated" class="alert alert-success" role="alert">
-            Votre compte à été mis à jour!
-          </div>
-
-          <div class="card-body">
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Nom"
-                v-model="user.nom"
-                required
-              />
-            </div>
-
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Prénom"
-                v-model="user.prenom"
-                required
-              />
-            </div>
-
-            <div class="input-group mb-3">
-              <input
-                type="email"
-                class="form-control"
-                placeholder="email@domain.com"
-                v-model="user.email"
-                disabled
-                required
-              />
-            </div>
-
-            <div class="input-group mb-3">
-              <input
-                type="password"
-                class="form-control"
-                placeholder="Nouveau Mot de passe"
-                v-model="user.newPassword"
-              />
-            </div>
-
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Date de naissance : yyyy-mm-dd"
-                v-model="user.dateNaissance"
-              />
-            </div>
-
-            <div class="input-group mb-3">
-              <input
-                type="telephone"
-                class="form-control"
-                placeholder="Telephone"
-                v-model="user.telephone"
-              />
-            </div>
-
-            <div class="input-group mb-3">
-              <input
-                type="adresse"
-                class="form-control"
-                placeholder="Adresse"
-                v-model="user.adresse"
-              />
-            </div>
-
-            <hr />
-
-            <div v-if="badCredentials" class="alert alert-danger" role="alert">
-              le mot de passe actuel est incorrecte!
-            </div>
-
-            <div class="input-group mb-3">
-              <input
-                type="password"
-                class="form-control"
-                placeholder="Mot de passe actuel"
-                v-model="user.password"
-                required
-              />
-            </div>
-
-            <div class="input-group mb-3">
-              <button
-                style="margin: 5px; margin-left: 0px"
-                type="submit"
-                class="btn btn-info"
-              >
-                Mettre à jour
-              </button>
-
-              <button
-                style="margin: 5px"
-                class="btn btn-secondary"
-                type="reset"
-              >
-                Annuler
-              </button>
-            </div>
-          </div>
-        </div><br>
-      </form>
-    </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -270,16 +271,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-body {
-  background-color: #f2f6fc;
-  color: #69707a;
-}
-.card {
-  box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
-}
-.img-account-profile {
-  height: 200px;
-}
-</style>

@@ -10,6 +10,10 @@ import LocationDetail from './components/LocationDetail.vue';
 import Profil from './components/Profil.vue';
 import Reservations from './components/Reservations.vue';
 import CreateLocation from './components/CreateLocation.vue';
+import UsersList from './components/UsersList.vue';
+import Payment from './components/Payment.vue';
+
+import './styles.css';
 
 const routes = [
   {
@@ -44,7 +48,14 @@ const routes = [
     path: '/create-location',
     component: CreateLocation
   },
-  
+  {
+    path: '/users-list',
+    component: UsersList
+  },
+  {
+    path: '/payment/:id',
+    component: Payment
+  }
 ];
 
 const router = createRouter({

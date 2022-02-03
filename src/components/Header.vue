@@ -35,8 +35,14 @@
           <!-- Menu compte -->
           <li class="nav-item dropdown nav-right">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <span v-if="!userConnected">Mon compte <i class="fas fa-solid fa-user"></i></span>
-              <span v-if="userConnected">{{ userFullName }} <i class="fas fa-solid fa-user"></i></span>
+
+              <span v-if="!userConnected">
+                Mon compte <i class="fas fa-solid fa-user"></i>
+              </span>
+
+              <span v-if="userConnected">
+                {{ userFullName }} <i class="fas fa-solid fa-user"></i>
+              </span>
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -60,13 +66,19 @@
                 </router-link>
               </li>
 
-              <li v-if="userConnected && userProprietaire">
+              <li v-if="userConnected && userAdmin">
+                <router-link to="/users-list" class="dropdown-item">
+                  Gestion des utilisateurs
+                </router-link>
+              </li>
+
+              <li v-if="userConnected && (userProprietaire || userAdmin)">
                 <router-link to="/create-location" class="dropdown-item">
                   Créer une location
                 </router-link>
               </li>
 
-              <li v-if="userConnected && userProprietaire">
+              <li v-if="userConnected && (userProprietaire || userAdmin)">
                 <router-link to="/locations" class="dropdown-item">
                   Mes Locations
                 </router-link>
@@ -120,6 +132,7 @@ export default {
     return {
       userConnected: false,
       userProprietaire: false,
+      userAdmin: false,
       userId: null,
       userFullName: "",
       notifs: []
@@ -132,6 +145,7 @@ export default {
 
       const user = JSON.parse(localStorage.getItem("user"));
       this.userProprietaire = user.role == "ROLE_PROPRIETAIRE";
+      this.userAdmin = user.role == "ROLE_ADMIN";
       this.userId = user.id;
       this.userFullName = user.nom + " " + user.prenom;
 
@@ -171,38 +185,5 @@ export default {
     }
   },
 };
-
-
 </script>
 
-<style scoped>
-#logo {
-  width: 107px;
-  height: 57px;
-}
-
-.bell-icon-toggle::after {
-  display: none;
-}
-/*#Nav {
- /* fallback for old browsers */
-  /*background: #1df3f3;
-
-  /* Chrome 10-25, Safari 5.1-6 */
-  /*: -webkit-linear-gradient(to right, rgb(8, 222, 230), rgba(143, 211, 244, 1));
-
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  /*background: linear-gradient(to right, rgb(14, 203, 250), rgb(158, 217, 246))
-}
-*/
-
-    @media (min-width: 800px) and (max-width: 850px) {
-            .navbar:not(.top-nav-collapse) {
-                background: #1C2331!important;
-            }
-        }
-.view,body,html{height:100%}.navbar{background-color:rgba(0,0,0,.2)}.page-footer,.top-nav-collapse{background-color:#1C2331}@media only screen and (max-width:768px){.navbar{background-color:#1C2331}}
-.container-fluid {
-  color: black;
-}
-</style>
