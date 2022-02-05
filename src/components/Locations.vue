@@ -37,15 +37,15 @@
         <div class="card" style="border-radius: 4px">
           <div>
             <img
-              src="https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg"
+              :src="location.image || 'https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg'"
               class="card-img-top"
               alt="Image"
             />
 
             <div class="card-body">
-              <h5 class="card-title">{{ location.titre }}</h5>
+              <h5 class="card-title" style="color:black">{{ location.titre }}</h5>
               <p class="card-text">{{ location.description }}</p>
-              <p class="card-text">Prix: {{ location.prix }} €</p>
+              <p class="card-text" style="color:green">Prix: {{ location.prix }} €/Nuit</p>
 
               <router-link
                 :to="'/location/' + location.id"

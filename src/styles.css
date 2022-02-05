@@ -38,7 +38,7 @@ html {
 }
 
 .card {
-    background-color: rgb(225, 242, 246);
+    background-color: rgba(255, 255, 255, 0.496);
 }
 
 .checkboxes input {
@@ -136,7 +136,7 @@ button {
 }
 
 .card {
-    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(33, 40, 50, 0.163);
 }
 
 .img-location {

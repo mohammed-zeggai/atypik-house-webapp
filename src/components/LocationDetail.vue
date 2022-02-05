@@ -11,7 +11,7 @@
 
     <hr />
 
-    <h4>Commentaires</h4>
+    <h4>Avis</h4>
     <ul class="list-group">
 
       <li class="list-group-item" v-for="comment in locationComments" :key="comment.id">
