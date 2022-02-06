@@ -15,6 +15,7 @@ import LocationsList from './components/LocationsList.vue';
 import Payment from './components/Payment.vue';
 
 import './styles.css';
+import './registerServiceWorker';
 
 const routes = [
   {
