@@ -73,7 +73,7 @@ export default {
       })
       .then((response) => response.json())
       .then((data) => {
-        alert("Reservation supprimée!");
+        alert("Reservation supprimée !");
         this.getReservations();
       });
     },

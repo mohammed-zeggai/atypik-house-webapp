@@ -48,25 +48,29 @@
                     id="mce-EMAIL2"
                 />
                 <input
+                    class=" btn btn-success btn-block btn-lg
+                          gradient-custom-4
+                          text-body"
                     type="submit"
                     value="Rechercher"
-                    name="recherche"
-                    id="mc-embedded-subscribe2"
-                    class="btn btn-success gradient-custom-4  btn-block btn-lg text-body"
                 />
                 </div>
             </div><br>
 
             <div class="container text-center">
-                <input type="submit" class="btn btn-success gradient-custom-4  btn-block btn-lg text-body display-2 mb-4" value="Découvrez nos location d’habitats alternatifs"
+                <input type="submit" class=" btn btn-success btn-block btn-lg
+                          gradient-custom-4
+                          text-body" value="Découvrez nos location d’habitats alternatifs"
                 /><br><br>
             </div>
         </section>
 
         <section class="py-5 container">
             <div class="row py-lg-4">
-                <h2 class="display-4 mb-4 text-center text-dark">Vous souhaitez vivre une expérience insolite ?
-                    Nous vous proposons différents types d'hébergements qui vous laisseront des souvenirs inoubliables.</h2>
+                <h2 class="display-4 mb-4 text-center text-dark">
+                    Vous souhaitez vivre une expérience insolite ?</h2>
+                <h3 class="display-4 mb-4 text-center text-dark">
+                    Nous vous proposons différents types d'hébergements qui vous laisseront des souvenirs inoubliables.</h3>
                 <div
                 v-for="location in newestLocations"
                 :key="location.id"

@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="display-8 col-md-6 col-sm-6 text-black gradient-custom-3">
-          <br><br>
+          
           <div
             class="
               d-flex
@@ -14,14 +14,14 @@
               mt-5
               pt-5 pt-xl-0
               mt-xl-n5
-              height-70-percent
+              height-90-percent
             "
           >
             <form @submit="createAccount" ref="formData" style="margin: auto;">
               <div class="container h-100">
                 <div
                   class="card1"
-                  style="border-radius: 4px"
+                  style="border-radius: 4px; width:400px"
                 >
                   <div class="card-body p-5 padding-10">
                     <div
@@ -148,30 +148,30 @@
                       >
                         I agree all statements in
                         <a href="#!" class="text-body"
-                          ><u>Terms of service</u></a
-                        >
+                          ><u>Terms of service</u>
+                        </a>
                       </label>
                     </div>
 
                     <div class="d-flex justify-content-center">
-                      <button
-                        style="margin: 5px; margin-left: 0px"
-                        class="
-                          btn btn-success btn-block btn-lg
-                          gradient-custom-4
-                          text-body
-                        "
-                        type="submit"
-                      >
-                        Créer mon compte
-                      </button>
-                      <button
-                        style="margin: 5px"
-                        class="btn btn-secondary"
-                        type="reset"
-                      >
-                        Annuler
-                      </button>
+                        <button
+                            style="margin: 5px; margin-left: 0px"
+                            class="
+                            btn btn-success btn-block btn-lg
+                            gradient-custom-4
+                            text-body
+                            "
+                            type="submit"
+                        >
+                            Créer mon compte
+                        </button>
+                        <button
+                            style="margin: 5px"
+                            class="btn btn-secondary"
+                            type="reset"
+                        >
+                            Annuler
+                        </button>
                     </div>
 
                     <p class="text-center text-muted mt-5 mb-0">

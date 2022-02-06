@@ -18,7 +18,7 @@
               height-70-percent
             "
           >
-            <form @submit="login" style="width: 500px; margin: auto;">
+            <form @submit="login" style="margin: auto;" >
               <div
                 v-if="badCredentials"
                 class="alert alert-danger"
@@ -27,7 +27,7 @@
                 L'adresse mail ou le mot de passe sont incorrectes!
               </div>
 
-              <div class="card1" style="border-radius: 4px">
+              <div class="card1" style="border-radius: 4px; width: 420px">
                 <div class="card-body p-5">
                   <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
                     Se Connecter
@@ -55,18 +55,21 @@
                     />
                   </div>
 
-                  <div class="input-group mb-3">
-                    <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" id="Seconnecter" type="submit">Se connecter</button>
-                    <button class="btn btn-secondary" type="reset">Annuler</button>
-                  </div>
-
-                  <p class="small mb-5 pb-lg-2">
-                    <a class="text-muted" href="#!">Mot de passe oublier ?</a>
-                  </p>
-                  <p>
-                      Vous n'avez pas de compte ?
-                    <a href="http://localhost:8081/register" class="link-dark">S'inscrire</a>
-                  </p>
+                    <div class="d-flex justify-content-center">
+                        <button 
+                            style="margin: 5px; margin-left: 0px" 
+                            class="
+                            btn btn-success btn-block btn-lg
+                            gradient-custom-4
+                            text-body
+                            "
+                            type="submit">Se connecter</button>
+                        <button class="btn btn-secondary" type="reset">Annuler</button>
+                    </div><br>
+                    <p>
+                        Vous n'avez pas de compte ?
+                        <a href="http://localhost:8081/register" class="link-dark">S'inscrire</a>
+                    </p>
                 </div>
               </div>
             </form>
