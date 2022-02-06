@@ -37,7 +37,7 @@
       </li>
     </ul>
 
-    <router-link v-if="userConnected" :to="`/payment/${id}`" class="btn btn-success">Réserver</router-link>
+    <router-link v-if="userConnected && comment.user.id != location.user.id" :to="`/payment/${id}`" class="btn btn-success">Réserver</router-link>
   </section>
 </template>
 
@@ -48,7 +48,9 @@ export default {
   data() {
     return {
       id: null,
-      location: {},
+      location: {
+        user: { id: null }
+      },
       locationComments: [],
       userConnected: false,
       comment: {
@@ -70,17 +72,17 @@ export default {
 
     // Récupérer les informations du backend
     fetch("http://localhost:8080/api/location/" + this.id)
-      .then((response) => response.json())
-      .then((data) => {
-        this.location = data;
-        this.getLocationComments();
+    .then((response) => response.json())
+    .then((data) => {
+      this.location = data;
+      this.getLocationComments();
 
-        // Parametrer les requetes
-        const user = JSON.parse(localStorage.getItem("user"));
+      // Parametrer les requetes
+      const user = JSON.parse(localStorage.getItem("user"));
 
-        this.comment.user.id = user.id;
-        this.comment.location.id = this.location.id;
-      });
+      this.comment.user.id = user.id;
+      this.comment.location.id = this.location.id;
+    });
   },
 
   methods: {

@@ -50,15 +50,8 @@
               <router-link
                 :to="'/location/' + location.id"
                 class="btn btn-primary"
-                style="margin-right:5px"
               >
                 Consulter
-              </router-link>
-              <router-link
-                @click="supprimerLocation(location.id)"
-                class="btn btn-danger"
-              >
-                Supprimer
               </router-link>
             </div>
           </div>
@@ -75,45 +68,15 @@ export default {
   data() {
     return {
       locations: [],
-      userId: null
     };
   },
 
   mounted() {
-    if (!localStorage.getItem("user") && !localStorage.getItem("token")) {
-      this.$router.push("/");
-      return;
-    }
-
-    const user = JSON.parse(localStorage.getItem("user"));
-    this.userId = user.id;
-
-    this.getLocations();
-  },
-
-  methods: {
-      supprimerLocation(id) {
-          fetch(`http://localhost:8080/api/location/delete${id}`, {
-             method: "DELETE",
-             headers: { Authorization: "Bearer" + localStorage.getIte("token") },
-        })
-        .then((response) => response.json())
-        .then((data) => {
-            alert("Location supprimée !");
-            this.getLocations();
-        });
-     },
-
-    getLocations() {
-      fetch(`http://localhost:8080/api/location/${this.userId}`, {
-        method: "GET",
-        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          this.locations = data;
-        });
-    },
+    fetch("http://localhost:8080/api/location")
+    .then((response) => response.json())
+    .then((data) => {
+      this.locations = data;
+    });
   },
 };
 </script>

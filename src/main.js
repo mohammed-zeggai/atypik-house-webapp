@@ -11,6 +11,7 @@ import Profil from './components/Profil.vue';
 import Reservations from './components/Reservations.vue';
 import CreateLocation from './components/CreateLocation.vue';
 import UsersList from './components/UsersList.vue';
+import LocationsList from './components/LocationsList.vue';
 import Payment from './components/Payment.vue';
 
 import './styles.css';
@@ -51,6 +52,10 @@ const routes = [
   {
     path: '/users-list',
     component: UsersList
+  },
+  {
+    path: '/locations-list',
+    component: LocationsList
   },
   {
     path: '/payment/:id',

@@ -79,7 +79,7 @@
               </li>
 
               <li v-if="userConnected && (userProprietaire || userAdmin)">
-                <router-link to="/locations" class="dropdown-item">
+                <router-link to="/locations-list" class="dropdown-item">
                   Mes Locations
                 </router-link>
               </li>
@@ -97,8 +97,6 @@
               </li>
             </ul>
           </li>
-
-          
 
           <!-- Menu de notifications -->
           <li v-if="userConnected" class="nav-item dropdown nav-left">
@@ -167,8 +165,6 @@ export default {
       })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-
         this.notifs = data;
       });
     },
