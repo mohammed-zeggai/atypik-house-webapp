@@ -1,7 +1,7 @@
 <template>
   <section class="py-5 text-center container-fluid">
-    <div class="row">
-      <div class="col-xl-4"><br>
+    <div class="row" >
+      <div class="col-xl-4" ><br>
         <div
           class="card mb-4 mb-xl-0"
           style="margin-left: 150px; margin-top: 20px; border-radius: 4px"

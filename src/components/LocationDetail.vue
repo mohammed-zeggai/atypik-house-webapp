@@ -1,13 +1,14 @@
 <template>
-  <section class="py-5 text-center container">
-    {{ location.id }} <br />
+  <section class="py-5 text-center container" style="margin-top:50px">
+    Location numéro :{{ location.id }} <br />
     {{ location.titre }} <br />
-    {{ location.description }} <br />
-    {{ location.prix }} <br />
+    
     <img
       :src="location.image || 'https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg'"
     /><br />
-    {{ location.prix }} <br />
+    Description :{{ location.description }} <br />
+    Équipements :{{ location.equipement }} <br />
+    Prix :{{ location.prix }} <br />
 
     <hr />
 
@@ -36,7 +37,8 @@
         </form>
       </li>
     </ul>
-
+    <br>
+    <hr>
     <router-link v-if="userConnected && comment.user.id != location.user.id" :to="`/payment/${id}`" class="btn btn-success">Réserver</router-link>
   </section>
 </template>

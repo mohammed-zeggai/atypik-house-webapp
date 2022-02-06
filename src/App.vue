@@ -1,7 +1,6 @@
 <template>
   <Header />
   
-
   <!-- Ici on affiche le 'route' actuel -->
   <router-view />
 

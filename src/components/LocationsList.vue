@@ -1,5 +1,5 @@
 <template>
-  <section class="py-5 text-center container">
+  <section class="py-5 container">
     <div class="row py-lg-8">
       <div
         class="text-center"
@@ -24,7 +24,7 @@
           "
         >
           <br />
-          Découvrir nos hébergements AtypikHouse
+          Mes hébergements AtypikHouse
         </h1>
       </div>
 
@@ -45,12 +45,11 @@
             <div class="card-body">
               <h5 class="card-title" style="color:black">{{ location.titre }}</h5>
               <p class="card-text">{{ location.description }}</p>
-              <p class="card-text" style="color:green">Prix: {{ location.prix }} €/Nuit</p>
+              <p class="card-text" style="color:green">Prix : {{ location.prix }} €/Nuit</p>
 
               <router-link
                 :to="'/location/' + location.id"
                 class="btn btn-primary"
-                style="margin-right:5px"
               >
                 Consulter
               </router-link>
@@ -79,7 +78,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Modifier Location</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @click="resetErrors()"></button>
             </div>
 
             <div class="modal-body">
@@ -184,6 +183,71 @@
 
                     <hr />
 
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                        @change="addEquipement($event)"
+                        :checked="location.equipementsArray.includes('Chauffage')"
+                        value="Chauffage">
+
+                      <label class="form-check-label" for="inlineCheckbox1">Chauffage</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                        @change="addEquipement($event)"
+                        :checked="location.equipementsArray.includes('Climatisation')"
+                        value="Climatisation">
+
+                      <label class="form-check-label" for="inlineCheckbox2">Climatisation</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox3"
+                        @change="addEquipement($event)"
+                        :checked="location.equipementsArray.includes('Cuisine')"
+                        value="Cuisine">
+
+                      <label class="form-check-label" for="inlineCheckbox3">Cuisine</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox4"
+                        @change="addEquipement($event)"
+                        :checked="location.equipementsArray.includes('Jacuzzi')"
+                        value="Jacuzzi">
+
+                      <label class="form-check-label" for="inlineCheckbox4">Jacuzzi</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox5"
+                        @change="addEquipement($event)"
+                        :checked="location.equipementsArray.includes('Wifi')"
+                        value="Wifi">
+
+                      <label class="form-check-label" for="inlineCheckbox5">Wifi</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox6"
+                        @change="addEquipement($event)"
+                        :checked="location.equipementsArray.includes('Télévision')"
+                        value="Télévision">
+
+                      <label class="form-check-label" for="inlineCheckbox6">Télévision</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="checkbox" id="inlineCheckbox7"
+                        @change="addEquipement($event)"
+                        :checked="location.equipementsArray.includes('Parking gratuit')"
+                        value="Parking gratuit">
+
+                      <label class="form-check-label" for="inlineCheckbox7">Parking gratuit</label>
+                    </div>
+
+                    <hr />
+
                     <div class="input-group mb-3">
                       <button
                         style="margin: 5px; margin-left: 0px"
@@ -197,7 +261,7 @@
                         style="margin: 5px"
                         data-bs-dismiss="modal"
                         class="btn btn-secondary"
-                        type="reset"
+                        @click="resetErrors()"
                       >
                         Annuler
                       </button>
@@ -230,6 +294,8 @@ export default {
         titre: "",
         type: "",
         description: "",
+        equipements: "",
+        equipementsArray: [],
         surface: "",
         image: "",
         planning: "",
@@ -238,7 +304,6 @@ export default {
       },
       updated: false,
       descriptionTooLong: false,
-      modalShown: false,
       userId: null
     };
   },
@@ -256,9 +321,32 @@ export default {
   },
 
   methods: {
+    resetErrors() {
+      this.updated = false;
+      this.descriptionTooLong = false;
+    },
+
     showModal(location) {
       this.location = location;
-      this.modalShown = true;
+      
+      const stringParts = this.location.equipements.split('; ');
+      stringParts.pop();
+      this.location.equipementsArray = stringParts;
+    }, 
+
+    addEquipement(ev) {
+      const value = ev.target.value;
+
+      if (ev.target.checked) {
+        if (!this.location.equipementsArray.includes(value)) {
+          this.location.equipementsArray.push(value);
+        }
+      } else {
+        if (this.location.equipementsArray.includes(value)) {
+          const indexOfValue = this.location.equipementsArray.indexOf(value);
+          this.location.equipementsArray.splice(indexOfValue, 1);
+        }
+      }
     },
 
     updateLocation(ev) {
@@ -268,6 +356,11 @@ export default {
         this.descriptionTooLong = true;
         return;
       }
+
+       // Créer le string equipements
+      let equipementsString = '';
+      this.location.equipementsArray.map(eq => equipementsString += eq + '; ');
+      this.location.equipements = equipementsString;
 
       fetch(`http://localhost:8080/api/location/update/${this.location.id}`, {
         method: "PUT",

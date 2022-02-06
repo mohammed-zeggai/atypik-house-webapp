@@ -109,6 +109,36 @@
                 />
               </div>
 
+              <div class="card-header display mb-3">Équipements</div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" @change="addEquipement($event)" value="Chauffage">
+                <label class="form-check-label" for="inlineCheckbox1">Chauffage</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" @change="addEquipement($event)" value="Climatisation">
+                <label class="form-check-label" for="inlineCheckbox2">Climatisation</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" @change="addEquipement($event)" value="Cuisine">
+                <label class="form-check-label" for="inlineCheckbox3">Cuisine</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" @change="addEquipement($event)" value="Jacuzzi">
+                <label class="form-check-label" for="inlineCheckbox4">Jacuzzi</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox5" @change="addEquipement($event)" value="Wifi">
+                <label class="form-check-label" for="inlineCheckbox5">Wifi</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox6" @change="addEquipement($event)" value="Télévision">
+                <label class="form-check-label" for="inlineCheckbox6">Télévision</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox7" @change="addEquipement($event)" value="Parking gratuit">
+                <label class="form-check-label" for="inlineCheckbox7">Parking gratuit</label>
+              </div>
+
               <hr />
 
               <div class="input-group mb-3">
@@ -149,6 +179,7 @@ export default {
         titre: "",
         type: "",
         description: "",
+        equipements: [],
         surface: "",
         image: "",
         planning: "",
@@ -172,6 +203,21 @@ export default {
   },
 
   methods: {
+    addEquipement(ev) {
+      const value = ev.target.value;
+
+      if (ev.target.checked) {
+        if (!this.location.equipements.includes(value)) {
+          this.location.equipements.push(value);
+        }
+      } else {
+        if (this.location.equipements.includes(value)) {
+          const indexOfValue = this.location.equipements.indexOf(value);
+          this.location.equipements.splice(indexOfValue, 1);
+        }
+      }
+    },
+
     createLocation(ev) {
       ev.preventDefault();
 
@@ -179,6 +225,11 @@ export default {
         this.descriptionTooLong = true;
         return;
       }
+
+      // Créer le string equipements
+      let equipementsString = '';
+      this.location.equipements.map(eq => equipementsString += eq + '; ');
+      this.location.equipements = equipementsString;
 
       // Créer la location
       fetch('http://localhost:8080/api/location/create', {

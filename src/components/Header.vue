@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <img src="http://localhost:8081/img/logo.png" alt="Logo" id="logo" />
         </a>
 
@@ -9,7 +9,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <div class="collapse navbar-collapse"  id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
             <router-link to="/" class="nav-link">
@@ -24,7 +24,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Contactez nous</a>
+            <a class="nav-link" href="#footer-id">Contactez nous</a>
           </li>
         </ul>
 

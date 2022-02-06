@@ -1,5 +1,5 @@
 <template>
-  <section class="py-5 text-center container">
+  <section class="py-5 container">
     <div class="row py-lg-8">
       <div
         class="text-center"
@@ -45,7 +45,7 @@
             <div class="card-body">
               <h5 class="card-title" style="color:black">{{ location.titre }}</h5>
               <p class="card-text">{{ location.description }}</p>
-              <p class="card-text" style="color:green">Prix: {{ location.prix }} €/Nuit</p>
+              <p class="card-text" style="color:green">Prix : {{ location.prix }} €/Nuit</p>
 
               <router-link
                 :to="'/location/' + location.id"

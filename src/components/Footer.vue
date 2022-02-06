@@ -200,7 +200,7 @@
     </div>
 
     <div class="text-center p-3">
-      <p id="footer-text">© 2022 Copyright ZEGGAI Mohammed</p>
+      <p id="footer-text">© 2022 Copyright Atypik House</p>
     </div>
   </footer>
 </template>
