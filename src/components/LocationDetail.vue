@@ -1,14 +1,18 @@
 <template>
-  <section class="py-5 text-center container" style="margin-top:50px">
-    Location numéro :{{ location.id }} <br />
-    {{ location.titre }} <br />
+  <section class="py-5 text container" >
+    <div style="margin-top:47px">
+      <div class="card card-body text-black">
+        <strong> Location numéro : {{ location.id }} <br />
+        {{ location.titre }}</strong> <br />
     
-    <img
-      :src="location.image || 'https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg'"
-    /><br />
-    Description :{{ location.description }} <br />
-    Équipements :{{ location.equipement }} <br />
-    Prix :{{ location.prix }} <br />
+        <img
+          :src="location.image || 'https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg'" style="width: 500px"
+        /><br />
+    
+        <p class="card-text">Description : {{ location.description }}</p>
+        <p class="card-text">Équipements : {{ location.equipement }}</p>
+        <strong class="card-text" style="color:green">Prix : {{ location.prix }} </strong> <br />
+    </div>
 
     <hr />
 
@@ -30,16 +34,16 @@
         </div>
 
         <form @submit="submitComment">
-          <textarea id="comment" type="text" v-model="comment.commentaire" required>
-          </textarea>
+          <textarea id="comment" type="text" style="width:1150px" v-model="comment.commentaire" required>
+          </textarea><br>
 
-          <button type="submit" class="btn btn-light">Commenter</button>
+          <button type="submit" class="btn btn-info">Commenter</button>
         </form>
       </li>
     </ul>
     <br>
-    <hr>
     <router-link v-if="userConnected && comment.user.id != location.user.id" :to="`/payment/${id}`" class="btn btn-success">Réserver</router-link>
+    </div>
   </section>
 </template>
 

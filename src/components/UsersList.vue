@@ -1,5 +1,5 @@
 <template>
-  <section class="content py-5 text-center container">
+  <section class="content py-5 text-center container" style="margin-top:114px">
    <div class="card p-3" style="border-radius: 4px">
       <div class="row">
         <li
