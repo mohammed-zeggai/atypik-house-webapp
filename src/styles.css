@@ -19,12 +19,6 @@ html {
     text-align: center;
 }
 
-#footer-id {
-    background: #1df3f3;
-    background: -webkit-linear-gradient(to right, rgb(8, 222, 230), rgba(143, 211, 244, 1));
-    background: linear-gradient(to right, rgb(14, 203, 250), rgb(158, 217, 246))
-}
-
 .badgeBtn {
     cursor: pointer;
 }

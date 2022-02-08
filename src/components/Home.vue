@@ -57,11 +57,8 @@
                 </div>
             </div><br>
 
-            <div class="container text-center">
-                <input type="submit" class=" btn btn-success btn-block btn-lg
-                          gradient-custom-4
-                          text-body" value="Découvrez nos location d’habitats alternatifs"
-                /><br><br>
+            <div class="display-4 mb-4 text-center text-white">
+                <h1>Découvrez nos location d’habitats alternatifs</h1><br>
             </div>
         </section>
 
@@ -99,11 +96,11 @@
                     </div>
                     
                 </div>
-                </div><br>
+                </div>
+                <br>
                 <hr>
             </div>
             
-
             <div class="rows">
                 <div class="row featurette">
                     <div class="col-md-7">
@@ -112,12 +109,12 @@
                         <h2 class="featurette-heading">
                         <br>
 
-                        First featurette heading.
-                        <span class="text-muted">It’ll blow your mind.</span>
-                        </h2>
+                        <span class="text-muted">VIVEZ UNE ÉXPERIENCE INOUBLIABLE !</span>
+                        </h2><br>
                         <p class="lead">
-                        Some great placeholder content for the first featurette here.
-                        Imagine some exciting prose here.
+                        A 4, 10 ou même 20 mètres de haut, nos cabanes perchées en Bretagne vous offriront le souvenir inoubliable d'un week end insolite à partager en famille, entre amis ou en amoureux.<br>
+                        Au petit-matin, hissez le panier du petit-déjeuner en hauteur jusqu’à votre terrasse et le soir, laissez-vous tenter par un panier repas pour profiter pleinement de votre cabane insolite en pleine nature, à quelques mètres du sol.<br>
+                        Elles sont des exemples d’éco-construction en bois, sans eau ni électricité et équipées de toilettes sèches. A l’intérieur, éclairage à la bougie et mobilier en bois véritable. Un petit chauffage d’appoint est installé en hiver pour une nuitée confortable dans votre lit.
                         </p>
                     </div>
                     
@@ -167,12 +164,11 @@
                         <h2 class="featurette-heading">
                         <br>
 
-                        First featurette heading.
-                        <span class="text-muted">It’ll blow your mind.</span>
-                        </h2>
+                        <span class="text-muted">VENEZ DÉCOUVRIR LES ACTIVITÉS ET LOISIRS À PROXIMITÉ DU PARC NATURE & OCÉAN</span>
+                        </h2><br>
                         <p class="lead">
-                        Some great placeholder content for the first featurette here.
-                        Imagine some exciting prose here.
+                        126 km de plages de sable fin, océanes ou lacustres, abritent une palette de stations balnéaires pour tous les goûts : Le Verdon, Soulac Sur Mer, Montalivet, Carcans, Lacanau… jusqu’au Bassin d’Arcachon.<br>
+                        Pour les amateurs de sensations un large choix d’activités à pratiquer : le surf, le kayak des mers, kyte surf… On peut s’initier à la planche à voile ou au catamaran avec l’UCPA.<br>D’autres activités plus paisibles vous attendent, vous pouvez emprunter les 140 Km de pistes cyclables. Location de vélo avec Garage à Vélo (Hourtin Port), côtoyer la faune et la flore des différents sentiers balisés ou pratiquer la pêche au bord du lac.
                         </p>
                     </div>
 
@@ -186,12 +182,16 @@
                         <h2 class="featurette-heading">
                         <br>
 
-                        First featurette heading.
-                        <span class="text-muted">It’ll blow your mind.</span>
-                        </h2>
+                        <span class="text-muted">BALADE ET DÉCOUVERTES</span>
+                        </h2><br>
                         <p class="lead">
-                        Some great placeholder content for the first featurette here.
-                        Imagine some exciting prose here.
+                          Entre lac, océan et vignobles des châteaux de rêve, un univers à découvrir : les vins du Médoc.<br>
+                          La départementale 2, route des vins, traverse la plupart des grandes appellations :<br>
+                          Haut Médoc, Saint Julien, Pauillac, Saint Estèphe…<br>
+                          D’autres activités liées à l’exploitation de la vigne vous attendent :<br>
+                          Visites de la Lagune de Contaut (marais boisé parsemé de fougères géantes) & des rives Est du lac (paysages, découverte de la végétation et peut-être aussi des traces de loutre…). Sites protégés, visites gratuites avec un guide naturaliste de juin à septembre.<br>
+                          Balade en forêt & brame du cerf en septembre : encadré par un guide naturaliste, balade en petit groupe dans les zones humides de la forêt pour écouter le brame du cerf.<br>
+                          Sortie mycologie en octobre : journée en forêt à la découverte des différentes espèces de champignons en compagnie d’un guide naturaliste.
                         </p>
                     </div>
                     <div class="col-md-5">
