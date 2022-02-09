@@ -122,8 +122,7 @@
 </template>
 
 <script>
-import apiUrl from '../env.js';
-import webUrl from '../env.js';
+import { apiUrl, webUrl } from '../env.js';
 
 export default {
   name: "Header",
@@ -135,7 +134,8 @@ export default {
       userAdmin: false,
       userId: null,
       userFullName: "",
-      notifs: []
+      notifs: [],
+      webUrl
     };
   },
 

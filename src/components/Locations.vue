@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import apiUrl from '../env.js';
+import { apiUrl } from '../env.js';
 
 export default {
   name: "Locations",
