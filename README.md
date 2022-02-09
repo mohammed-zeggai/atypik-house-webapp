@@ -1,5 +1,11 @@
 # atypik-house-webapp
 
+## URL de l'application
+http://f2i-dev06-mz-ak-yy-ae.fr
+
+## Dans le cas où le DNS n'est pas encore configuré
+http://159.223.2.119/
+
 ## Project setup
 ```
 npm install
