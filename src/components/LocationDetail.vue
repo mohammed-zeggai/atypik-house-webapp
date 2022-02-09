@@ -48,6 +48,8 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
+
 export default {
   name: "LocationDetail",
 
@@ -77,7 +79,7 @@ export default {
     this.id = this.$route.params.id;
 
     // Récupérer les informations du backend
-    fetch("http://localhost:8080/api/location/" + this.id)
+    fetch(`${apiUrl}/api/location/` + this.id)
     .then((response) => response.json())
     .then((data) => {
       this.location = data;
@@ -95,7 +97,7 @@ export default {
     getLocationComments() {
       // Récupérer les informations du backend
       fetch(
-        "http://localhost:8080/api/commentaire/location/" + this.location.id
+        `${apiUrl}/api/commentaire/location/` + this.location.id
       )
       .then((response) => response.json())
       .then((data) => {
@@ -107,7 +109,7 @@ export default {
       ev.preventDefault();
 
       fetch(
-        "http://localhost:8080/api/commentaire/create", {
+        `${apiUrl}/api/commentaire/create`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -125,7 +127,7 @@ export default {
     },
     
     supprimerCommentaire(id) {
-      fetch(`http://localhost:8080/api/commentaire/delete/${id}`, {
+      fetch(`${apiUrl}/api/commentaire/delete/${id}`, {
         method: "DELETE",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })

@@ -46,6 +46,8 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
+
 export default {
   name: "Payment",
 
@@ -79,7 +81,7 @@ export default {
   methods: {
     reserverLocation() {
       fetch(
-        "http://localhost:8080/api/reservation/create", {
+        `${apiUrl}/api/reservation/create`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

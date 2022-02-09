@@ -203,6 +203,8 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
+
 export default {
   name: "Register",
 
@@ -251,7 +253,7 @@ export default {
       }
 
       // Creation de l'utilisateur
-      fetch("http://localhost:8080/api/user/create", {
+      fetch(`${apiUrl}/api/user/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(this.user),

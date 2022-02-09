@@ -52,6 +52,8 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
+
 export default {
   name: "Reservations",
 
@@ -78,7 +80,7 @@ export default {
     },
 
     modifierUserRole(id) {
-      fetch(`http://localhost:8080/api/user/updateRole/${id}/${this.newUserRole}`, {
+      fetch(`${apiUrl}/api/user/updateRole/${id}/${this.newUserRole}`, {
         method: "PUT",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })
@@ -90,7 +92,7 @@ export default {
     },
 
     supprimerUser(id) {
-      fetch(`http://localhost:8080/api/user/delete/${id}`, {
+      fetch(`${apiUrl}/api/user/delete/${id}`, {
         method: "DELETE",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })
@@ -102,7 +104,7 @@ export default {
     },
 
     getUsers() {
-      fetch(`http://localhost:8080/api/user`, {
+      fetch(`${apiUrl}/api/user`, {
         method: "GET",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })

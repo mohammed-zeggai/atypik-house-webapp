@@ -43,6 +43,8 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
+
 export default {
   name: "Reservations",
 
@@ -67,7 +69,7 @@ export default {
 
   methods: {
     supprimerReservation(id) {
-      fetch(`http://localhost:8080/api/reservation/delete/${id}`, {
+      fetch(`${apiUrl}/api/reservation/delete/${id}`, {
         method: "DELETE",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })
@@ -79,7 +81,7 @@ export default {
     },
 
     getReservations() {
-      fetch(`http://localhost:8080/api/reservation/${this.userId}`, {
+      fetch(`${apiUrl}/api/reservation/${this.userId}`, {
         method: "GET",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })

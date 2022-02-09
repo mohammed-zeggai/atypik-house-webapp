@@ -154,6 +154,8 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
+
 export default {
   name: "Profil",
 
@@ -235,7 +237,7 @@ export default {
 
       // Tester les credentials d'utilisateur
       fetch(
-        `http://localhost:8080/api/user/testCredentials/${this.user.email}/${this.user.password}`,
+        `${apiUrl}/api/user/testCredentials/${this.user.email}/${this.user.password}`,
         {
           method: "GET",
           headers: { Authorization: "Bearer " + localStorage.getItem("token") },
@@ -252,7 +254,7 @@ export default {
 
     updateUser(request) {
       // Metter à jour l'utilisateur
-      fetch(`http://localhost:8080/api/user/update/${this.user.id}`, {
+      fetch(`${apiUrl}/api/user/update/${this.user.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

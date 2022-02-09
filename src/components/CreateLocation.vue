@@ -167,6 +167,8 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
+
 export default {
   name: "CreateLocation",
 
@@ -232,7 +234,7 @@ export default {
       this.location.equipements = equipementsString;
 
       // Créer la location
-      fetch('http://localhost:8080/api/location/create', {
+      fetch(`${apiUrl}/api/location/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

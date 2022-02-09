@@ -219,6 +219,8 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
+
 export default {
   name: "Home",
 
@@ -229,7 +231,7 @@ export default {
   },
 
   mounted() {
-    fetch("http://localhost:8080/api/location/newest")
+    fetch(`${apiUrl}/api/location/newest`)
       .then((response) => response.json())
       .then((data) => {
         this.newestLocations = data;

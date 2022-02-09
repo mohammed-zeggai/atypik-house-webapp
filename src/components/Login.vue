@@ -90,6 +90,8 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
+
 export default {
   name: "Login",
 
@@ -114,7 +116,7 @@ export default {
       ev.preventDefault();
 
       // Connecter l'utilisateur
-      fetch("http://localhost:8080/api/user/login", {
+      fetch(`${apiUrl}/api/user/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(this.user),
@@ -134,7 +136,7 @@ export default {
             localStorage.setItem("token", data.body);
 
             // Récuperer les données de l'utilistaeur
-            fetch("http://localhost:8080/api/user/byEmail/" + this.user.email, {
+            fetch(`${apiUrl}/api/user/byEmail/` + this.user.email, {
               method: "GET",
               headers: { Authorization: "Bearer " + data.body },
             })

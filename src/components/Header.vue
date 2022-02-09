@@ -122,6 +122,7 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
 
 export default {
   name: "Header",
@@ -159,7 +160,7 @@ export default {
 
     recupererNotifications() {
       // Récupérer les notifs
-      fetch(`http://localhost:8080/api/notification/${this.userId}`, {
+      fetch(`${apiUrl}/api/notification/${this.userId}`, {
         method: "GET",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })
@@ -171,7 +172,7 @@ export default {
 
     supprimerNotification(id) {
       // Supprimer une notif
-      fetch(`http://localhost:8080/api/notification/delete/${id}`, {
+      fetch(`${apiUrl}/api/notification/delete/${id}`, {
         method: "DELETE",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })

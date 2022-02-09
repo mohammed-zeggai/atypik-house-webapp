@@ -281,6 +281,8 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
+
 export default {
   name: "LocationsList",
 
@@ -362,7 +364,7 @@ export default {
       this.location.equipementsArray.map(eq => equipementsString += eq + '; ');
       this.location.equipements = equipementsString;
 
-      fetch(`http://localhost:8080/api/location/update/${this.location.id}`, {
+      fetch(`${apiUrl}/api/location/update/${this.location.id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -377,7 +379,7 @@ export default {
     },
 
     supprimerLocation(id) {
-      fetch(`http://localhost:8080/api/location/delete/${id}`, {
+      fetch(`${apiUrl}/api/location/delete/${id}`, {
         method: "DELETE",
         headers: { Authorization: "Bearer" + localStorage.getItem("token") },
       })
@@ -389,7 +391,7 @@ export default {
     },
 
     getLocations() {
-      fetch(`http://localhost:8080/api/location/forUser/${this.userId}`, {
+      fetch(`${apiUrl}/api/location/forUser/${this.userId}`, {
         method: "GET",
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })

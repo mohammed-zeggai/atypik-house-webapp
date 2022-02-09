@@ -62,6 +62,8 @@
 </template>
 
 <script>
+import apiUrl from '../env.js';
+
 export default {
   name: "Locations",
 
@@ -72,7 +74,7 @@ export default {
   },
 
   mounted() {
-    fetch("http://localhost:8080/api/location")
+    fetch(`${apiUrl}/api/location`)
     .then((response) => response.json())
     .then((data) => {
       this.locations = data;
