@@ -155,13 +155,13 @@
                     </div>
 
                     <div class="input-group mb-3">
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Planning"
-                        v-model="location.planning"
-                      />
+                      <input type="date" class="form-control" name="planning-start"
+                        :min="new Date().toDateString()" required v-model="location.planningStartDate">
+
+                      <input type="date" class="form-control" name="planning-end"
+                        :min="new Date().toDateString()" required v-model="location.planningEndDate">
                     </div>
+
 
                     <div class="input-group mb-3">
                       <input
@@ -300,7 +300,8 @@ export default {
         equipementsArray: [],
         surface: "",
         image: "",
-        planning: "",
+        planningStartDate: "",
+        planningEndDate: "",
         prix: "",
         adresse: ""
       },
@@ -397,7 +398,7 @@ export default {
       })
       .then((response) => response.json())
       .then((data) => {
-        this.locations = data;
+        this.locations = data.reverse();
       });
     },
   },

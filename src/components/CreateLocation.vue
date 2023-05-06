@@ -83,19 +83,18 @@
               </div>
 
               <div class="input-group mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Planning"
-                  v-model="location.planning"
-                />
+                <input type="date" class="form-control" name="planning-start"
+                    :min="new Date().toDateString()" required v-model="location.planningStartDate">
+
+                <input type="date" class="form-control" name="planning-end"
+                    :min="new Date().toDateString()" required v-model="location.planningEndDate">
               </div>
 
               <div class="input-group mb-3">
                 <input
                   type="telephone"
                   class="form-control"
-                  placeholder="Prix"
+                  placeholder="Prix par nuit"
                   v-model="location.prix"
                 />
               </div>
@@ -184,7 +183,8 @@ export default {
         equipements: [],
         surface: "",
         image: "",
-        planning: "",
+        planningStartDate: "",
+        planningEndDate: "",
         prix: "",
         adresse: ""
       },
@@ -195,7 +195,10 @@ export default {
 
   mounted() {
     const user = JSON.parse(localStorage.getItem("user"));
-    this.location.user.id = user.id;
+
+    if (user) {
+      this.location.user.id = user.id;
+    }
 
     if (!localStorage.getItem("user") && !localStorage.getItem("token")
     || (user.role != "ROLE_PROPRIETAIRE" && user.role != "ROLE_ADMIN")) {

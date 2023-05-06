@@ -77,7 +77,7 @@ export default {
     fetch(`${apiUrl}/api/location`)
     .then((response) => response.json())
     .then((data) => {
-      this.locations = data;
+      this.locations = data.reverse();
     });
   },
 };

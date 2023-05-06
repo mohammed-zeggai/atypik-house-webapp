@@ -18,50 +18,16 @@ import './styles.css';
 import './registerServiceWorker';
 
 const routes = [
-  {
-    path: '/',
-    component: Home
-  },
-  {
-    path: '/register',
-    component: Register
-  },
-  {
-    path: '/login',
-    component: Login
-  },
-  {
-    path: '/locations',
-    component: Locations
-  },
-  {
-    path: '/location/:id',
-    component: LocationDetail
-  },
-  {
-    path: '/reservations',
-    component: Reservations
-  },
-  {
-    path: '/profil',
-    component: Profil
-  },
-  {
-    path: '/create-location',
-    component: CreateLocation
-  },
-  {
-    path: '/users-list',
-    component: UsersList
-  },
-  {
-    path: '/locations-list',
-    component: LocationsList
-  },
-  {
-    path: '/payment/:id',
-    component: Payment
-  }
+  { path: '/', component: Home },
+  { path: '/register', component: Register },
+  { path: '/login', component: Login },
+  { path: '/locations', component: Locations },
+  { path: '/location/:id', component: LocationDetail },
+  { path: '/reservations', component: Reservations },
+  { path: '/profil', component: Profil },
+  { path: '/create-location', component: CreateLocation },
+  { path: '/users-list', component: UsersList },
+  { path: '/locations-list', component: LocationsList }
 ];
 
 const router = createRouter({

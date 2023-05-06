@@ -51,13 +51,18 @@ import { apiUrl } from '../env.js';
 export default {
   name: "Payment",
 
+  props: {
+    reservationData: Object
+  },
+
   data() {
     return {
       userConnected: false,
       id: null,
       reservation: {
         user: { id: null },
-        location: { id: null }
+        location: { id: null },
+        ...this.reservationData
       },
       reservationCreated: false
     };
