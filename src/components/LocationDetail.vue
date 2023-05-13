@@ -10,8 +10,8 @@
         /><br />
     
         <p class="card-text">Description : {{ location.description }}</p>
-        <p class="card-text">Équipements : {{ location.equipement }}</p>
-        <p class="card-text"><strong>Disponible à partir du {{ location.planningStartDate }} jusqu'au {{  location.planningEndDate }}</strong></p>
+        <p class="card-text">Équipements : {{ location.equipements }}</p>
+        <p class="card-text"><strong>Disponible à partir du {{ new Date(location.planningStartDate).toLocaleDateString() }} jusqu'au {{ new Date(location.planningEndDate).toLocaleDateString() }}</strong></p>
 
         <strong class="card-text" style="color:green">Prix : {{ location.prix }}€ / Nuit </strong> <br />
     </div>
@@ -36,7 +36,7 @@
         </div>
 
         <form @submit="submitComment">
-          <textarea id="comment" type="text" style="width:1150px" v-model="newComment.commentaire" required>
+          <textarea id="comment" type="text" class="form-control" v-model="newComment.commentaire" required>
           </textarea><br>
 
           <button type="submit" class="btn btn-info">Commenter</button>
@@ -46,12 +46,22 @@
 
     <br>
 
-    <div class="input-group mb-3">
-      <input type="date" class="form-control" name="planning-start"
-        :min="new Date().toDateString()" required v-model="reservation.startDate">
+    <div class="input-group mb-3" v-if="!payment && userConnected && newComment.user.id != location.user.id && location.disponibilite != 'RESERVE'">
+      <input type="date"
+        class="form-control"
+        name="planning-start"
+        :min="new Date(location.planningStartDate).toISOString().split('T')[0]"
+        :max="new Date(location.planningEndDate).toISOString().split('T')[0]"
+        required
+        v-model="reservation.startDate">
 
-      <input type="date" class="form-control" name="planning-end"
-        :min="new Date().toDateString()" required v-model="reservation.endDate">
+      <input type="date"
+        class="form-control"
+        name="planning-end"
+        :min="new Date(location.planningStartDate).toISOString().split('T')[0]"
+        :max="new Date(location.planningEndDate).toISOString().split('T')[0]"
+        required
+        v-model="reservation.endDate">
     </div>
 
     <!-- Boutton de Réservation -->

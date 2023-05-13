@@ -203,6 +203,7 @@
 </template>
 
 <script>
+import { useMeta } from "vue-meta";
 import { apiUrl } from '../env.js';
 
 export default {
@@ -223,6 +224,15 @@ export default {
       passwordsDoNotMatch: false,
       errorMessage: null,
     };
+  },
+
+  setup() {
+    useMeta({
+      meta: [
+        //{ rel: 'canonical', href: 'url' },
+        { name: 'description', content: 'S’inscrire aujourd’hui chez Atypik House.' }
+      ]
+    });
   },
 
   mounted() {

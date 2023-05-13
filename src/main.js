@@ -1,6 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import { createRouter, createWebHistory } from 'vue-router';
+import { createMetaManager } from 'vue-meta';
 
 import Register from './components/Register.vue';
 import Login from './components/Login.vue';
@@ -35,6 +36,7 @@ const router = createRouter({
   routes
 });
 
-const app = createApp(App);
-app.use(router);
+const app = createApp(App)
+  .use(router)
+  .use(createMetaManager());
 app.mount('#app');

@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import { useMeta } from "vue-meta";
 import { apiUrl } from '../env.js';
 
 export default {
@@ -103,6 +104,15 @@ export default {
       },
       badCredentials: false,
     };
+  },
+
+  setup() {
+    useMeta({
+      meta: [
+        //{ rel: 'canonical', href: 'url' },
+        { name: 'description', content: 'Accèder à votre compte Atypik House.' }
+      ]
+    });
   },
 
   mounted() {
@@ -128,28 +138,28 @@ export default {
           return response.json();
         })
         .then((data) => {
-          if (data.body) {
-            // Désactiver l'erreur précédente
-            this.badCredentials = false;
+            if (data.body) {
+                // Désactiver l'erreur précédente
+                this.badCredentials = false;
 
-            // Stocker le token dans le localStorage
-            localStorage.setItem("token", data.body);
+                // Stocker le token dans le localStorage
+                localStorage.setItem("token", data.body);
 
-            // Récuperer les données de l'utilistaeur
-            fetch(`${apiUrl}/api/user/byEmail/` + this.user.email, {
-              method: "GET",
-              headers: { Authorization: "Bearer " + data.body },
-            })
-              .then((response) => response.json())
-              .then((userData) => {
-                if (userData.id) {
-                  // L'utilisateur est récupéré
-                  // Stocker le dans le localStorage
-                  localStorage.setItem("user", JSON.stringify(userData));
-                  window.location.reload();
-                }
-              });
-          }
+                // Récuperer les données de l'utilistaeur
+                fetch(`${apiUrl}/api/user/byEmail/` + this.user.email, {
+                    method: "GET",
+                    headers: { Authorization: "Bearer " + data.body },
+                })
+                .then((response) => response.json())
+                .then((userData) => {
+                    if (userData.id) {
+                    // L'utilisateur est récupéré
+                    // Stocker le dans le localStorage
+                    localStorage.setItem("user", JSON.stringify(userData));
+                    window.location.reload();
+                    }
+                });
+            }
         });
     },
   },
