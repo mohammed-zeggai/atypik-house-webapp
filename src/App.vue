@@ -25,7 +25,7 @@ export default {
       title: "Atypik House",
       htmlAttrs: { lang: "fr" },
       meta: [
-        { name: 'author', content: 'ZEGGAI Mohammed' },
+        { name: 'author', content: 'Tech Team Agency' },
         //{ rel: 'canonical', href: 'url' },
         { name: 'description', content: 'Découvrez nos location d’habitats alternatifs.' }
       ]
