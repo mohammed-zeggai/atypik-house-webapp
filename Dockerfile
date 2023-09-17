@@ -18,9 +18,8 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-COPY ./copy_assets.sh /
-RUN chmod +x /copy_assets.sh
-RUN /copy_assets.sh
+RUN chmod +x ./copy_assets.sh
+RUN ./copy_assets.sh
 
 EXPOSE 8080
 CMD [ "http-server", "dist" ]
