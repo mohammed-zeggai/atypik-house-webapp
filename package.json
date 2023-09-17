@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --port=8081",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build": "vue-cli-service build && npm run copy-assets",
+    "lint": "vue-cli-service lint",
+    "copy-assets": "cp -rv public/** dist/"
   },
   "dependencies": {
     "core-js": "^3.6.5",
