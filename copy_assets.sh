@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp -rf !(index.html) ./public/* ./dist/
+cp -rf ./public/!(index.html) ./dist/
