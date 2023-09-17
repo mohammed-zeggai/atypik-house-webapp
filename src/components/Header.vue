@@ -2,7 +2,7 @@
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
-        <img :src="`${webUrl}/img/logo.png`" alt="Logo" id="logo" />
+        <img :src="`${webUrl}/logo.png`" alt="Logo" id="logo" />
         </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
