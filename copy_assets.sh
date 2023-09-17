@@ -1,4 +1,5 @@
 #!/bin/bash
 
 rm ./public/index.html
-cp -rf ./public/* ./dist/
+mv -r ./public/img ./dist/img
+cp ./public/* ./dist/
