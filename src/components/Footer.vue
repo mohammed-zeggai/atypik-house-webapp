@@ -54,20 +54,36 @@
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            AtypikHouse
+            Liens direct
           </h6>
-          <p>
-            <a>À propos de nous</a>
-          </p>
-          <p>
-            <a>Avis</a>
-          </p>
-          <p>
-            <a>Obtenir des directions</a>
-          </p>
-          <p>
-            <a>Visites à proximité</a>
-          </p>
+          <li>
+            <router-link to="/PolitiqueConfidentialite" style="color: black" href="">Politique de confidentialité</router-link>
+          </li>
+          <li>
+            <router-link to="/MentionsLegales" style="color: black">
+              Mentions légales
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/Cgv" style="color: black">
+              CGV
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/Cgu" style="color: black">
+              CGU
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/Faq" style="color: black">
+              FAQ
+            </router-link>
+          </li>
+          <li>
+            <router-link to="/" style="color: black">
+            Sitemap
+            </router-link>
+          </li>
         </div>
         <!-- Grid column -->
 
@@ -107,7 +123,8 @@
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2021 Copyright :
-    <b>Atypik House</b>
+    <b>Atypik House</b> &nbsp;
+    ATTENTION : Ce site internet est un projet étudiant. Aucune réservation ne sera donc honorée.
   </div>
   <!-- Copyright -->
 </footer>
