@@ -14,13 +14,13 @@ import CreateLocation from './components/CreateLocation.vue';
 import UsersList from './components/UsersList.vue';
 import LocationsList from './components/LocationsList.vue';
 import Faq from './components/Faq.vue';
-import Cgv from './components/Cgv.vue';
-import Cgu from './components/Cgu.vue';
+// import Cgv from './components/Cgv.vue';
+// import Cgu from './components/Cgu.vue';
 import MentionsLegales from './components/MentionsLegales.vue';
 import PolitiqueConfidentialite from './components/PolitiqueConfidentialite.vue';
 
 import './styles.css';
-import './registerServiceWorker';
+// import './registerServiceWorker';
 
 const routes = [
   { path: '/', component: Home },
