@@ -34,8 +34,8 @@ const routes = [
   { path: '/users-list', component: UsersList },
   { path: '/locations-list', component: LocationsList },
   { path: '/faq', component: Faq },
-  { path: '/cgv', component: Cgv },
-  { path: '/cgu', component: Cgu },
+  // { path: '/cgv', component: Cgv },
+  // { path: '/cgu', component: Cgu },
   { path: '/mentionsLegales', component: MentionsLegales },
   { path: '/politiqueConfidentialite', component: PolitiqueConfidentialite }
 ];
