@@ -15,12 +15,14 @@
     "vue-router": "^4.0.12"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.5.4",
+    "@playwright/test": "^1.42.0",
+    "@types/node": "^20.11.22",
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-plugin-pwa": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
     "@vue/compiler-sfc": "^3.0.0",
-    "@babel/eslint-parser": "^7.5.4",
     "eslint": "^8.52.0",
     "eslint-plugin-vue": "^7.0.0"
   },

@@ -14,13 +14,12 @@ import CreateLocation from './components/CreateLocation.vue';
 import UsersList from './components/UsersList.vue';
 import LocationsList from './components/LocationsList.vue';
 import Faq from './components/Faq.vue';
-// import Cgv from './components/Cgv.vue';
-// import Cgu from './components/Cgu.vue';
+import CgvCgu from './components/CgvCgu.vue';
 import MentionsLegales from './components/MentionsLegales.vue';
 import PolitiqueConfidentialite from './components/PolitiqueConfidentialite.vue';
 
 import './styles.css';
-// import './registerServiceWorker';
+
 
 const routes = [
   { path: '/', component: Home },
@@ -34,8 +33,7 @@ const routes = [
   { path: '/users-list', component: UsersList },
   { path: '/locations-list', component: LocationsList },
   { path: '/faq', component: Faq },
-  // { path: '/cgv', component: Cgv },
-  // { path: '/cgu', component: Cgu },
+  { path: '/cgvCgu', component: CgvCgu },
   { path: '/mentionsLegales', component: MentionsLegales },
   { path: '/politiqueConfidentialite', component: PolitiqueConfidentialite }
 ];

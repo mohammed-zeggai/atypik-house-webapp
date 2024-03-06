@@ -65,13 +65,8 @@
             </router-link>
           </li>
           <li>
-            <router-link to="/Cgv" style="color: black">
-              CGV
-            </router-link>
-          </li>
-          <li>
-            <router-link to="/Cgu" style="color: black">
-              CGU
+            <router-link to="/CgvCgu" style="color: black">
+              CGV - CGU
             </router-link>
           </li>
           <li>
@@ -80,9 +75,9 @@
             </router-link>
           </li>
           <li>
-            <router-link to="/" style="color: black">
+            <a href="https://f2i-dev06-mz-ak-yy-ae.fr/sitemap.xml" style="color: black">
             Sitemap
-            </router-link>
+            </a>
           </li>
         </div>
         <!-- Grid column -->
