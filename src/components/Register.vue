@@ -90,6 +90,7 @@
                         type="password"
                         class="form-control"
                         placeholder="Mot de passe"
+                        @input="validatePassword"
                         v-model="user.password"
                         required
                       />
@@ -241,7 +242,16 @@ export default {
     }
   },
 
+  
   methods: {
+
+    validatePassword() {
+      const password = this.user.password;
+      const pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+      
+      this.isPasswordValid = pattern.test(password);
+    },
+  
     createAccount(ev) {
       // Arreter l'evenement de rechargement de la page
       ev.preventDefault();
@@ -280,3 +290,4 @@ export default {
   },
 };
 </script>
+
