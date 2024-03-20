@@ -283,6 +283,7 @@ export default {
       }
 
       // Désactiver l'erreur et supprimer le champ de verification de la requete
+      this.passwordInvalid = false;
       this.passwordsDoNotMatch = false;
       delete this.user.passwordVerification;
 
