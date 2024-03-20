@@ -36,6 +36,21 @@
                     </div>
 
                     <div
+                      v-if="passwordInvalid"
+                      class="alert alert-danger"
+                      role="alert"
+                    >
+                      Le mot de passe doit contenir:
+                      <ul>
+                        <li>au moins 8 caractères</li>
+                        <li>un majuscule</li>
+                        <li>un minuscule</li>
+                        <li>un chiffre</li>
+                        <li>un caractères spécial "!@#$%^&*"</li>
+                      </ul>
+                    </div>
+
+                    <div
                       v-if="passwordsDoNotMatch"
                       class="alert alert-danger"
                       role="alert"
@@ -90,7 +105,6 @@
                         type="password"
                         class="form-control"
                         placeholder="Mot de passe"
-                        @input="validatePassword"
                         v-model="user.password"
                         required
                       />
@@ -222,6 +236,7 @@ export default {
         role: "ROLE_CLIENT",
       },
       userCreated: false,
+      passwordInvalid: false,
       passwordsDoNotMatch: false,
       errorMessage: null,
     };
@@ -242,19 +257,24 @@ export default {
     }
   },
 
-  
+
   methods: {
 
     validatePassword() {
       const password = this.user.password;
       const pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
-      
-      this.isPasswordValid = pattern.test(password);
+      return pattern.test(password);
     },
-  
+
     createAccount(ev) {
       // Arreter l'evenement de rechargement de la page
       ev.preventDefault();
+
+      // Tester si le password est valid
+      if (!this.validatePassword()) {
+        this.passwordInvalid = true;
+        return;
+      }
 
       // Tester si le password et sa verification sont bons
       if (this.user.password != this.user.passwordVerification) {
