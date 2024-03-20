@@ -75,7 +75,7 @@
             </router-link>
           </li>
           <li>
-            <a href="https://f2i-dev06-mz-ak-yy-ae.fr/sitemap.xml" style="color: black">
+            <a :href="`${webUrl}/sitemap.xml`" style="color: black">
             Sitemap
             </a>
           </li>
@@ -127,7 +127,15 @@
 </template>
 
 <script>
+import { webUrl } from '../env';
+
 export default {
-  name: "Footer"
+  name: "Footer",
+
+  data() {
+    return {
+        webUrl
+    }
+  }
 }
 </script>

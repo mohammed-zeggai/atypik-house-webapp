@@ -5,4 +5,4 @@ export const apiUrl = window.location.origin.includes('localhost')
 
 export const webUrl = window.location.origin.includes('localhost')
   ? 'http://localhost:8081'
-  : 'https://atypik-house-api-y8ntq.ondigitalocean.app';
+  : 'https://f2i-dev06-mz-ak-yy-ae.fr/';

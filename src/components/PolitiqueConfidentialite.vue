@@ -15,20 +15,20 @@
       France ou en Europe, mais également de mettre en location leurs propres
       logements insolites de manière simple et sécurisée.<br />
 
-      L’adresse de notre site est : <b>https://f2i-dev06-mz-ak-yy-ae.fr/</b>
+      L’adresse de notre site est : <b>{{ webUrl }}</b>
     </div>
     <h3 style="margin-top: 2rem">Définitions</h3>
     <div>
       Client : Tout professionnel ou personne physique capable au sens des
       articles 1123 et suivants du Code civil, ou personne morale, qui visite le
       Site objet des présentes conditions générales.<br />
-      Prestations et Services : <b>https://f2i-dev06-mz-ak-yy-ae.fr/</b> met à
+      Prestations et Services : <b>{{ webUrl }}</b> met à
       disposition des Clients.<br />
       Contenu : Ensemble des éléments constituants l’information présente sur le
       Site, notamment textes – images – vidéos.<br />Informations clients : Ci après
       dénommé « Information (s) » qui correspondent à l’ensemble des données
       personnelles susceptibles d’être détenues par
-      <b>https://f2i-dev06-mz-ak-yy-ae.fr/</b> pour la gestion de votre compte, de la
+      <b>{{ webUrl }}</b> pour la gestion de votre compte, de la
       gestion de la relation client et à des fins d’analyses et de
       statistiques.<br />
       Utilisateur : Internaute se connectant, utilisant le site susnommé.<br />
@@ -44,7 +44,7 @@
       <h3 style="margin-top: 2rem">Présentation du site internet</h3>
       En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la
       confiance dans l'économie numérique, il est précisé aux utilisateurs du
-      site internet <b>https://f2i-dev06-mz-ak-yy-ae.fr/</b> l'identité des différents
+      site internet <b>{{ webUrl }}</b> l'identité des différents
       intervenants dans le cadre de sa réalisation et de son suivi: Propriétaire
       : SARL AtypikHouse Capital social de 10000€ Numéro de TVA: FR 00123456789
       – 6 Rue Napoléon, 60350 PIERREFONDS Responsable publication : Léa
@@ -337,3 +337,16 @@
     </h3>
   </section>
 </template>
+
+<script>
+import { webUrl } from '../env';
+
+export default {
+    data() {
+        return {
+            webUrl
+        }
+    },
+}
+</script>
+

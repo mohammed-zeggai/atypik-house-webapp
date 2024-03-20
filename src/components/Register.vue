@@ -192,7 +192,7 @@
                     <p class="text-center text-muted mt-5 mb-0">
                       Vous avez déjà un compte ?
                       <a
-                        href="http://localhost:8081/login"
+                        :href="`${webUrl}/login`"
                         class="fw-bold text-body"
                         ><u>Se Connecter</u></a
                       >
@@ -219,7 +219,7 @@
 
 <script>
 import { useMeta } from "vue-meta";
-import { apiUrl } from '../env.js';
+import { apiUrl, webUrl } from '../env.js';
 
 export default {
   name: "Register",
@@ -239,6 +239,7 @@ export default {
       passwordInvalid: false,
       passwordsDoNotMatch: false,
       errorMessage: null,
+      webUrl
     };
   },
 
