@@ -68,7 +68,7 @@
                     </div><br>
                     <p>
                         Vous n'avez pas de compte ?
-                        <a href="http://localhost:8081/register" class="link-dark">S'inscrire</a>
+                        <a :href="`${webUrl}/register`" class="link-dark">S'inscrire</a>
                     </p>
                 </div>
               </div>
@@ -91,7 +91,7 @@
 
 <script>
 import { useMeta } from "vue-meta";
-import { apiUrl } from '../env.js';
+import { apiUrl, webUrl } from '../env.js';
 
 export default {
   name: "Login",
@@ -103,6 +103,7 @@ export default {
         password: "",
       },
       badCredentials: false,
+      webUrl
     };
   },
 
