@@ -171,8 +171,7 @@ export default {
         image: "",
         dateNaissance: "",
         telephone: "",
-        adresse: "",
-        role: "ROLE_CLIENT",
+        adresse: ""
       },
       badCredentials: false,
       updated: false,
@@ -211,8 +210,7 @@ export default {
         image: this.user.image,
         dateNaissance: this.user.dateNaissance,
         telephone: this.user.telephone,
-        adresse: this.user.adresse,
-        role: "ROLE_ADMIN",
+        adresse: this.user.adresse
       };
 
       if (this.user.newPassword) {
