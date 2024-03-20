@@ -212,7 +212,7 @@ export default {
         dateNaissance: this.user.dateNaissance,
         telephone: this.user.telephone,
         adresse: this.user.adresse,
-        role: "ROLE_CLIENT",
+        role: "ROLE_ADMIN",
       };
 
       if (this.user.newPassword) {
