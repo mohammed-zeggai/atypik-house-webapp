@@ -45,7 +45,7 @@
             <div class="card-body">
               <h5 class="card-title" style="color:black">{{ location.titre }}</h5>
               <p class="card-text">{{ location.description }}</p>
-               <p class="card-text">{{ location.description }}</p>
+               <p class="card-text">{{ location.adresse }}</p>
               <p class="card-text" style="color:green">Prix : {{ location.prix }} €/Nuit</p>
 
               <router-link
