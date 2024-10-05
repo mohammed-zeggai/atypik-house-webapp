@@ -12,19 +12,19 @@
       <div class="collapse navbar-collapse"  id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link to="/" class="nav-link" style="color: white; font-size: 20px; margin-right: 1.5rem">
+            <router-link to="/" class="nav-link" style="color: white; font-size: 20px; margin-right: 0.5rem">
             Accueil
             </router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/locations" class="nav-link" style="color: white; font-size: 20px; margin-right: 1.5rem">
+            <router-link to="/locations" class="nav-link" style="color: white; font-size: 20px; margin-right: 0.5rem">
               Nos biens
             </router-link>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#footer-id" style="color: white; font-size: 20px; margin-right: 1.5rem">Contactez nous</a>
+            <a class="nav-link" href="#footer-id" style="color: white; font-size: 20px; margin-right: 0.5rem">Contactez nous</a>
           </li>
         </ul>
 
