@@ -12,19 +12,19 @@
       <div class="collapse navbar-collapse"  id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link to="/" class="nav-link">
+            <router-link to="/" class="nav-link" style="color: white; font-size: 20px; margin-right: 1.5rem">
             Accueil
             </router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/locations" class="nav-link">
+            <router-link to="/locations" class="nav-link" style="color: white; font-size: 20px; margin-right: 1.5rem">
               Nos biens
             </router-link>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#footer-id">Contactez nous</a>
+            <a class="nav-link" href="#footer-id" style="color: white; font-size: 20px; margin-right: 1.5rem">Contactez nous</a>
           </li>
         </ul>
 
@@ -34,7 +34,7 @@
 
           <!-- Menu compte -->
           <li class="nav-item dropdown nav-right">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white; font-size: 20px;">
 
               <span v-if="!userConnected">
                 Mon compte <i class="fas fa-solid fa-user"></i>
