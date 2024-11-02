@@ -1,7 +1,7 @@
 
 export const apiUrl = window.location.origin.includes('localhost')
   ? 'http://localhost:8080'
-  : 'https://atypik-house-api-y8ntq.ondigitalocean.app';
+  : 'https://jellyfish-app-v4zg9.ondigitalocean.app';
 
 export const webUrl = window.location.origin.includes('localhost')
   ? 'http://localhost:8081'
