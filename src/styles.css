@@ -39,24 +39,15 @@ html {
     margin: 0 20px 0;
 }
 
-.gradient-custom-3 {
-    background: #84fab0;
-    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
-    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-}
-
 .gradient-custom-4 {
-    background: #84fab0;
-    background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
-    background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
+    background-color:#495b2a;
 }
 
 #First {
-    background-image: url("https://images.pexels.com/photos/2734166/pexels-photo-2734166.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-image: url("https://png.pngtree.com/background/20230611/original/pngtree-mountain-cabins-in-zaire-picture-image_3121249.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 
 .col-md-4 {
     margin-bottom: 20px;
@@ -65,7 +56,8 @@ html {
 #logo {
     width: 100px;
     height: 55px;
-    margin-right: 3rem;
+    margin-right: 8rem;
+    margin-left: 12rem;
 }
 
 .bell-icon-toggle::after {
@@ -75,28 +67,27 @@ html {
 
 @media (min-width: 800px) and (max-width: 850px) {
     .navbar:not(.top-nav-collapse) {
-        background: #1C2331 !important
+        background: #1C2331 !important;
     }
 }
 
 .navbar {
-    background-color: rgb(58, 60, 66)
-
+    background-color: #495b2a;
 }
 
 .page-footer,
 .top-nav-collapse {
-    background-color: #1C2331
+    background-color: #1C2331;
 }
 
 @media only screen and (max-width:768px) {
     .navbar {
-        background-color: #1C2331
+        background-color: #1C2331;
     }
 }
 
 .container-fluid {
-    color: black;
+    justify-content: center !important;
 }
 
 button {

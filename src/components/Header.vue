@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar fixed navbar-expand-lg  scrolling-navbar container-fluid">
+  <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <img :src="`/logo.png`" alt="Logo" id="logo" />

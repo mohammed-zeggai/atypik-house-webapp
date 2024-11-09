@@ -5,8 +5,7 @@
         <div
           class="mask rgba-black-light d-flex justify-content-center align-items-center"
         >
-          <div class="text-center">
-            <br />
+          <div class="text-center" style="margin-top: 10rem;">
             <h1 class="display-2 mb-4 text-white">
               Trouvez votre prochaines endroit insolites
             </h1>
@@ -31,7 +30,7 @@
           />
           <input
             @click="rechercherLocations()"
-            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+            class="btn btn-success btn-block btn-lg gradient-custom-4"
             type="submit"
             value="Rechercher"
           />
@@ -71,6 +70,7 @@
       <div class="display-4 mb-4 text-center text-white">
         <h1>Découvrez nos location d’habitats alternatifs</h1>
         <br />
+        <br />
       </div>
     </section>
 
@@ -82,8 +82,9 @@
         <h3 class="display-4 mb-4 text-center text-dark">
           Nous vous proposons différents types d'hébergements qui vous
           laisseront des souvenirs inoubliables.
+        <br /><br />
         </h3>
-
+        
         <div
           v-for="location in newestLocations"
           :key="location.id"
