@@ -1,6 +1,6 @@
 <template>
   <section class="py-5 container">
-    <h1 style="margin-top: 5rem" align="center">FAQ</h1><br />
+    <h1 class="display-16 mb-4 text-dark" style="margin-top: 7rem" align="center">FAQ</h1><br />
     <div style="margin-top: 2rem">
       <b><b>Q :</b></b> Comment réserver une maison atypique ? 
       <br />
@@ -79,6 +79,11 @@
       demandes particulières que vous pourriez avoir.
       <br /><br />
     </div>
+    <br />
+    <h3 style="color: red" align="center">
+      ATTENTION : Ce site internet est un projet étudiant. Aucune réservation ne
+      sera donc honorée.
+    </h3>
   </section>
 </template>
 

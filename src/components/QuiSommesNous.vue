@@ -1,6 +1,6 @@
 <template>
   <section class="py-5 container">
-    <h1 class="display-16 mb-4 text-dark" style="margin-top: 5rem" align="center">Qui sommes-nous ?</h1><br />
+    <h1 class="display-16 mb-4 text-dark" style="margin-top: 7rem" align="center">Qui sommes-nous ?</h1><br />
     <div style="margin-top: 2rem">
       
       Chez <b>Atypik House</b>, nous ne sommes pas simplement un acteur du secteur de l'immobilier, nous sommes une communauté vibrante d'explorateurs passionnés et curieux, toujours à la recherche de nouvelles expériences et découvertes. <b>Atypik House</b> est un lieu de rencontres et d’échanges, un véritable espace où chaque projet, chaque idée, chaque espace devient une aventure unique.
@@ -31,6 +31,12 @@
       Chez <b>Atypik House</b>, nous ne nous contentons pas de suivre les tendances, nous les créons. Nous vous invitons à découvrir un monde sans frontières, où chaque espace et chaque moment sont pensés pour enrichir votre expérience, tout en célébrant la diversité, l'authenticité et l'innovation.
       <br/><br />
     </div>
+
+      <br />
+      <h3 style="color: red" align="center">
+        ATTENTION : Ce site internet est un projet étudiant. Aucune réservation ne
+        sera donc honorée.
+      </h3>
   </section>
 </template>
 

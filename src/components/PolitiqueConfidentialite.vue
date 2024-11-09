@@ -1,9 +1,6 @@
 <template>
   <section class="py-5 container" style="text-align: justify">
-    <h1 style="margin-top: 5rem" align="center">
-      Politique de confidentialité
-    </h1>
-    <br />
+    <h1 class="display-16 mb-4 text-dark" style="margin-top: 7rem" align="center">Politique de confidentialité</h1><br />
     <h3 style="margin-top: 2rem">Qui sommes-nous ?</h3>
     <div>
       Atypik House est un site de réservation de logement insolite.<br />

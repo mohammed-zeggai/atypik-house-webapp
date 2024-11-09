@@ -1,9 +1,7 @@
 <template>
   <section class="py-5 container">
-    <h1 style="margin-top: 5rem" align="center">CGV - CGU</h1>
-    <br />
+    <h1 class="display-16 mb-4 text-dark" style="margin-top: 7rem" align="center">CGV - CGU</h1><br />
     <div style="margin-top: 2rem">
-      <br />
     <h2>Bienvenue sur le site d’Atypik House !</h2>
       <div>
         Avant de poursuivre votre navigation et de profiter de nos services,
@@ -79,5 +77,10 @@
       Nous vous souhaitons une agréable expérience sur le site d’Atypik House !
       <br />
     </div>
+    <br />
+    <h3 style="color: red" align="center">
+      ATTENTION : Ce site internet est un projet étudiant. Aucune réservation ne
+      sera donc honorée.
+    </h3>
   </section>
 </template>
