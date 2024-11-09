@@ -21,9 +21,10 @@
             animation-delay: 600ms;
             animation-direction: normal;
             animation-fill-mode: both;
+            margin-top: 5rem;
           "
+          align="center"
         >
-          <br />
           Découvrir nos hébergements AtypikHouse
         </h1>
       </div>

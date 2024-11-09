@@ -13,19 +13,7 @@
         <i class="fab fa-facebook-f"></i>
       </a>
       <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
         <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
       </a>
     </div>
     <!-- Right -->
@@ -74,11 +62,11 @@
               FAQ
             </router-link>
           </li>
-          <li>
+          <!-- <li>
             <a :href="`${webUrl}/sitemap.xml`" style="color: black">
             Sitemap
             </a>
-          </li>
+          </li> -->
         </div>
         <!-- Grid column -->
 

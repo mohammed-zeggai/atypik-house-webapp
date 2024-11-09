@@ -19,6 +19,7 @@ import MentionsLegales from './components/MentionsLegales.vue';
 import PolitiqueConfidentialite from './components/PolitiqueConfidentialite.vue';
 
 import './styles.css';
+import QuiSommesNous from './components/QuiSommesNous.vue';
 
 
 const routes = [
@@ -35,7 +36,8 @@ const routes = [
   { path: '/faq', component: Faq },
   { path: '/cgvCgu', component: CgvCgu },
   { path: '/mentionsLegales', component: MentionsLegales },
-  { path: '/politiqueConfidentialite', component: PolitiqueConfidentialite }
+  { path: '/politiqueConfidentialite', component: PolitiqueConfidentialite },
+  { path: '/qui-sommes-nous', component: QuiSommesNous }
 ];
 
 const router = createRouter({

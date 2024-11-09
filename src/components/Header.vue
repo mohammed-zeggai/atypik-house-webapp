@@ -24,6 +24,12 @@
           </li>
 
           <li class="nav-item">
+            <router-link to="/qui-sommes-nous" class="nav-link" style="color: white; font-size: 20px; margin-right: 0.5rem">
+              Qui sommes-nous ?
+            </router-link>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="#footer-id" style="color: white; font-size: 20px; margin-right: 0.5rem">Contactez nous</a>
           </li>
         </ul>
