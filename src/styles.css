@@ -63,10 +63,9 @@ html {
 }
 
 #logo {
-    width: 107px;
-    height: 57px;
+    width: 100px;
+    height: 55px;
     margin-right: 3rem;
-    margin-left: 20px;
 }
 
 .bell-icon-toggle::after {

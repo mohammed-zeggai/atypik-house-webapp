@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+  <nav class="navbar fixed navbar-expand-lg  scrolling-navbar container-fluid">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <img :src="`/logo.png`" alt="Logo" id="logo" />
@@ -12,25 +12,25 @@
       <div class="collapse navbar-collapse"  id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <router-link to="/" class="nav-link" style="color: white; font-size: 20px; margin-right: 0.5rem">
+            <router-link to="/" class="nav-link" style="color: white; font-size: 20px; margin-right: 2rem">
             Accueil
             </router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/locations" class="nav-link" style="color: white; font-size: 20px; margin-right: 0.5rem">
+            <router-link to="/locations" class="nav-link" style="color: white; font-size: 20px; margin-right: 2rem">
               Nos biens
             </router-link>
           </li>
 
           <li class="nav-item">
-            <router-link to="/qui-sommes-nous" class="nav-link" style="color: white; font-size: 20px; margin-right: 0.5rem">
+            <router-link to="/qui-sommes-nous" class="nav-link" style="color: white; font-size: 20px; margin-right: 2rem">
               Qui sommes-nous ?
             </router-link>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#footer-id" style="color: white; font-size: 20px; margin-right: 0.5rem">Contactez nous</a>
+            <a class="nav-link" href="#footer-id" style="color: white; font-size: 20px; margin-right: 2rem">Contactez nous</a>
           </li>
         </ul>
 
