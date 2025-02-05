@@ -105,7 +105,7 @@
 
   <!-- Copyright -->
   <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2024 Copyright :
+    © 2025 Copyright :
     <b>Atypik House</b> &nbsp;
     ATTENTION : Ce site internet est un projet étudiant. Aucune réservation ne sera donc honorée.
   </div>
