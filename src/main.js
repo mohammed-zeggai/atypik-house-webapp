@@ -20,11 +20,13 @@ import PolitiqueConfidentialite from './components/PolitiqueConfidentialite.vue'
 
 import './styles.css';
 import QuiSommesNous from './components/QuiSommesNous.vue';
+import RegisterProprietaire from './components/RegisterProprietaire.vue';
 
 
 const routes = [
   { path: '/', component: Home },
   { path: '/register', component: Register },
+  { path: '/registerProprietaire', component: RegisterProprietaire },
   { path: '/login', component: Login },
   { path: '/locations', component: Locations },
   { path: '/location/:id', component: LocationDetail },

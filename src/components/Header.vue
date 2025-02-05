@@ -55,9 +55,16 @@
               <!-- Non Connecté -->
               <li v-if="!userConnected">
                 <router-link to="/register" class="dropdown-item">
-                  Créer un compte
+                  Créer un compte locataire
                 </router-link>
               </li>
+              
+              <li v-if="!userConnected">
+                <router-link to="/registerProprietaire" class="dropdown-item">
+                  Créer un compte propriétaire
+                </router-link>
+              </li>
+
 
               <li v-if="!userConnected">
                 <router-link to="/login" class="dropdown-item">

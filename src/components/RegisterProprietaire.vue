@@ -3,7 +3,6 @@
     <div class="container-fluid">
       <div class="row">
         <div class="display-8 col-md-6 col-sm-6 text-black gradient-custom-3">
-          
           <div
             class="
               d-flex
@@ -29,7 +28,7 @@
                       class="alert alert-success"
                       role="alert"
                     >
-                      Votre compte à été crée avec succes!
+                      Votre compte propriétaire a été créé avec succès!
                       <router-link to="/login" class="alert-link"
                         >Connectez-vous?</router-link
                       >
@@ -46,7 +45,7 @@
                         <li>un majuscule</li>
                         <li>un minuscule</li>
                         <li>un chiffre</li>
-                        <li>un caractères spécial "!@#$%^&*"</li>
+                        <li>un caractère spécial "!@#$%^&*"</li>
                       </ul>
                     </div>
 
@@ -68,7 +67,7 @@
                     </div>
 
                     <h2 class="text-uppercase text-center mb-3">
-                      S'inscrire en tant que Locataire
+                      S'inscrire en tant que Propriétaire
                     </h2>
                     <div class="input-group mb-3">
                       <input
@@ -121,22 +120,22 @@
                     </div>
 
                     <div
-                      class="
-                        form-check
-                        d-flex
-                        justify-content-center
-                        mb-3
-                      "
+                      class="form-check d-flex justify-content-center mb-3"
                     >
+                      <input
+                        class="form-check-input me-2"
+                        type="checkbox"
+                        checked
+                        disabled
+                        id="isProprietaire"
+                      />
+                      <label class="form-check-label" for="isProprietaire">
+                        Propriétaire
+                      </label>
                     </div>
 
                     <div
-                      class="
-                        form-check
-                        d-flex
-                        justify-content-center
-                        mb-3
-                      "
+                      class="form-check d-flex justify-content-center mb-3"
                     >
                       <input
                         class="form-check-input me-2"
@@ -145,14 +144,10 @@
                         id="conditionsGenerales"
                         required
                       />
-                      <label
-                        class="form-check-label"
-                        for="conditionsGenerales"
-                      >
-                        I agree all statements in
+                      <label class="form-check-label" for="conditionsGenerales">
+                        J'accepte les
                         <a href="#!" class="text-body"
-                          ><u>Terms of service</u>
-                        </a>
+                          ><u>conditions générales</u></a>
                       </label>
                     </div>
 
@@ -166,7 +161,7 @@
                             "
                             type="submit"
                         >
-                            Créer mon compte locataire
+                            Créer mon compte propriétaire
                         </button>
                         <button
                             style="margin: 5px"
@@ -210,7 +205,7 @@ import { useMeta } from "vue-meta";
 import { apiUrl, webUrl } from '../env.js';
 
 export default {
-  name: "Register",
+  name: "RegisterProprietaire",
 
   data() {
     return {
@@ -220,8 +215,7 @@ export default {
         email: "",
         password: "",
         passwordVerification: "",
-        isProprietaire: false,
-        role: "ROLE_CLIENT",
+        role: "ROLE_PROPRIETAIRE",
       },
       userCreated: false,
       passwordInvalid: false,
@@ -234,8 +228,7 @@ export default {
   setup() {
     useMeta({
       meta: [
-        //{ rel: 'canonical', href: 'url' },
-        { name: 'description', content: 'S’inscrire aujourd’hui chez Atypik House.' }
+        { name: 'description', content: 'S’inscrire en tant que propriétaire sur Atypik House.' }
       ]
     });
   },
@@ -246,9 +239,7 @@ export default {
     }
   },
 
-
   methods: {
-
     validatePassword() {
       const password = this.user.password;
       const pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
@@ -276,12 +267,6 @@ export default {
       this.passwordsDoNotMatch = false;
       delete this.user.passwordVerification;
 
-      // Tester si l'utilisateur est un proprietaire
-      if (this.user.isProprietaire) {
-        this.user.role = "ROLE_PROPRIETAIRE";
-        delete this.user.isProprietaire;
-      }
-
       // Creation de l'utilisateur
       fetch(`${apiUrl}/api/user/create`, {
         method: "POST",
@@ -300,4 +285,3 @@ export default {
   },
 };
 </script>
-
