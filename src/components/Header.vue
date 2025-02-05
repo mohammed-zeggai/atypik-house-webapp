@@ -90,7 +90,7 @@
                   Créer une location
                 </router-link>
               </li>
-
+              
               <li v-if="userConnected && (userProprietaire || userAdmin)">
                 <router-link to="/locations-list" class="dropdown-item">
                   Mes Locations

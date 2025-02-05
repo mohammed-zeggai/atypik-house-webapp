@@ -3,8 +3,8 @@
     <div class="cookie-content">
       <p>
         Nous utilisons des cookies pour améliorer votre expérience. En continuant à naviguer sur ce site, vous acceptez notre 
-        <a href="/privacy-policy">politique de confidentialité</a> et nos 
-        <a href="/cookies-policy">conditions d'utilisation des cookies</a>.
+        <a href="/politiqueConfidentialite">politique de confidentialité</a> et nos 
+        <a href="/cookie-policy">conditions d'utilisation des cookies</a>.
       </p>
       <button @click="acceptCookies">Accepter</button>
     </div>

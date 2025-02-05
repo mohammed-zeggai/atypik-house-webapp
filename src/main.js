@@ -22,7 +22,7 @@ import './styles.css';
 import QuiSommesNous from './components/QuiSommesNous.vue';
 import RegisterProprietaire from './components/RegisterProprietaire.vue';
 import CookieConsent from './components/CookieConsent.vue';
-
+import CookiesPolicy from './components/CookiesPolicy.vue';
 
 const routes = [
   { path: '/', component: Home },
@@ -40,7 +40,8 @@ const routes = [
   { path: '/cgvCgu', component: CgvCgu },
   { path: '/mentionsLegales', component: MentionsLegales },
   { path: '/politiqueConfidentialite', component: PolitiqueConfidentialite },
-  { path: '/qui-sommes-nous', component: QuiSommesNous }
+  { path: '/qui-sommes-nous', component: QuiSommesNous },
+  { path: '/cookie-policy', component: CookiesPolicy }
 ];
 
 const router = createRouter({
