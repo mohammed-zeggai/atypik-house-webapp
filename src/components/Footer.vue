@@ -74,7 +74,7 @@
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Êtes-vous locateur
+            Êtes-vous propriètaire
           </h6>
            <p>
              Si vous êtes propriètaire d'un bien immobilier que vous souhaitez mettre en location saisonnière, contactez notre agence pour louer en toute sérénité.
