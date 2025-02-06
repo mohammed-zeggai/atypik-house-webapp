@@ -221,7 +221,7 @@ export default {
         password: "",
         passwordVerification: "",
         isProprietaire: false,
-        role: "ROLE_CLIENT",
+        role: "ROLE_ADMIN",
       },
       userCreated: false,
       passwordInvalid: false,
