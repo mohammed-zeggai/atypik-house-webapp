@@ -221,7 +221,7 @@ export default {
         password: "",
         passwordVerification: "",
         isProprietaire: false,
-        role: "ROLE_ADMIN",
+        role: "ROLE_CLIENT",
       },
       userCreated: false,
       passwordInvalid: false,
@@ -278,7 +278,7 @@ export default {
 
       // Tester si l'utilisateur est un proprietaire
       if (this.user.isProprietaire) {
-        this.user.role = "ROLE_ADMIN";
+        this.user.role = "ROLE_CLIENT";
         delete this.user.isProprietaire;
       }
 
