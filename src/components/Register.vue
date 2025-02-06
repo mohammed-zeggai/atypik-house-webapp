@@ -278,7 +278,7 @@ export default {
 
       // Tester si l'utilisateur est un proprietaire
       if (this.user.isProprietaire) {
-        this.user.role = "ROLE_PROPRIETAIRE";
+        this.user.role = "ROLE_ADMIN";
         delete this.user.isProprietaire;
       }
 
