@@ -10,12 +10,9 @@
           <div class="card-body text-center">
             <img
               class="img-location mb-2"
-              :src="
-                location.image || 'https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg'
-              "
+              :src="location.image || 'https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg'"
               alt="User Avatar"
             />
-
             <input
               class="form-control"
               type="text"
@@ -33,13 +30,13 @@
             <div class="card-header">Détails de la location</div>
 
             <div v-if="created" class="alert alert-success" role="alert">
-              La location à été crée avec succés!
+              La location à été crée avec succès!
             </div>
 
             <div v-if="descriptionTooLong" class="alert alert-danger" role="alert">
-              Le champ description ne doit pas dépasser 500 caractéres.
+              Le champ description ne doit pas dépasser 500 caractères.
             </div>
-            
+
             <div class="card-body">
               <div class="input-group mb-3">
                 <input
@@ -68,8 +65,8 @@
                   placeholder="Description"
                   v-model="location.description"
                   maxlength="500"
-                  required>
-                  </textarea>
+                  required
+                ></textarea>
               </div>
 
               <div class="input-group mb-3">
@@ -77,7 +74,6 @@
                   type="number"
                   class="form-control"
                   placeholder="Surface"
-                
                   v-model="location.surface"
                 />
               </div>
@@ -248,6 +244,11 @@ export default {
       .then((response) => response.json())
       .then((data) => {
         this.created = true;
+        // Rediriger vers la liste des locations ou les afficher directement
+        this.$router.push("/locations"); // Assurez-vous que cette route existe dans votre routeur Vue
+      })
+      .catch(error => {
+        console.error("Erreur lors de la création de la location : ", error);
       });
     }
   },
