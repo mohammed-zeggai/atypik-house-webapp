@@ -215,6 +215,7 @@ export default {
         email: "",
         password: "",
         passwordVerification: "",
+        isProprietaire: true,
         role: "ROLE_PROPRIETAIRE",
       },
       userCreated: false,
@@ -267,6 +268,12 @@ export default {
       this.passwordsDoNotMatch = false;
       delete this.user.passwordVerification;
 
+      // Tester si l'utilisateur est un proprietaire
+      if (this.user.isProprietaire) {
+        this.user.role = "ROLE_PROPRIETAIRE";
+        delete this.user.isProprietaire;
+      }
+      
       // Creation de l'utilisateur
       fetch(`${apiUrl}/api/user/create`, {
         method: "POST",
