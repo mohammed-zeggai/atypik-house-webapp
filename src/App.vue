@@ -14,7 +14,7 @@
 import { useMeta } from "vue-meta";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
-import CookieConsent from "./components/CookieConsent.vue";
+import CookiesConsent from "./components/CookiesConsent.vue";
 
 
 export default {
@@ -23,7 +23,7 @@ export default {
   components: {
     Header,
     Footer,
-    CookieConsent,
+    CookiesConsent,
   },
 
   setup() {
