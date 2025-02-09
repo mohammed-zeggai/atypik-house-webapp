@@ -17,12 +17,12 @@ import Faq from './components/Faq.vue';
 import CgvCgu from './components/CgvCgu.vue';
 import MentionsLegales from './components/MentionsLegales.vue';
 import PolitiqueConfidentialite from './components/PolitiqueConfidentialite.vue';
-
-import './styles.css';
 import QuiSommesNous from './components/QuiSommesNous.vue';
 import RegisterProprietaire from './components/RegisterProprietaire.vue';
 import CookiesConsent from './components/CookiesConsent.vue';
 import CookiesPolicy from './components/CookiesPolicy.vue';
+
+import './styles.css';
 
 const routes = [
   { path: '/', component: Home },
@@ -52,6 +52,6 @@ const router = createRouter({
 const app = createApp(App)
   .use(router)
   .use(createMetaManager());
+
 app.component('CookiesConsent', CookiesConsent);
 app.mount('#app');
-

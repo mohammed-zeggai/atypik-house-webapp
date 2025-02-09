@@ -1,10 +1,8 @@
 <template>
   <Header />
 
-  <!-- Affichage de la bannière de consentement aux cookies -->
-  <CookieConsent />
-
-  <!-- Ici on affiche le 'route' actuel -->
+  <CookiesConsent />
+  
   <router-view />
 
   <Footer />
@@ -15,7 +13,6 @@ import { useMeta } from "vue-meta";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 import CookiesConsent from "./components/CookiesConsent.vue";
-
 
 export default {
   name: "App",
