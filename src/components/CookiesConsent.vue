@@ -57,7 +57,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row; 
+  gap: 10px; 
 }
 
 .cookie-banner button {
