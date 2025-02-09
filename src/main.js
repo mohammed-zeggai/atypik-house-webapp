@@ -21,7 +21,7 @@ import PolitiqueConfidentialite from './components/PolitiqueConfidentialite.vue'
 import './styles.css';
 import QuiSommesNous from './components/QuiSommesNous.vue';
 import RegisterProprietaire from './components/RegisterProprietaire.vue';
-import CookieConsent from './components/CookieConsent.vue';
+import CookiesConsent from './components/CookiesConsent.vue';
 import CookiesPolicy from './components/CookiesPolicy.vue';
 
 const routes = [
@@ -52,6 +52,6 @@ const router = createRouter({
 const app = createApp(App)
   .use(router)
   .use(createMetaManager());
-app.component('CookieConsent', CookieConsent);
+app.component('CookiesConsent', CookiesConsent);
 app.mount('#app');
 
