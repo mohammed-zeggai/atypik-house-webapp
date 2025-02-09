@@ -7,6 +7,7 @@
         <a href="/cookie-policy">conditions d'utilisation des cookies</a>.
       </p>
       <button @click="acceptCookies">Accepter</button>
+      <button @click="rejectCookies">Refuser</button>
     </div>
   </div>
 </template>
@@ -18,7 +19,7 @@ export default {
   data() {
     return {
       // Cette donnée garde la trace de l'affichage de la bannière des cookies
-      showCookieBanner: !localStorage.getItem('cookiesAccepted')
+      showCookieBanner: !localStorage.getItem('cookiesAccepted') && !localStorage.getItem('cookiesRejected')
     };
   },
 
@@ -28,6 +29,12 @@ export default {
       this.showCookieBanner = false;
       // Et on enregistre dans le localStorage que l'utilisateur a accepté
       localStorage.setItem('cookiesAccepted', 'true');
+    },
+
+    rejectCookies() {
+      // Quand l'utilisateur clique sur "Refuser", on cache la bannière et on marque le refus dans le localStorage
+      this.showCookieBanner = false;
+      localStorage.setItem('cookiesRejected', 'true');
     }
   }
 };
@@ -61,6 +68,7 @@ export default {
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+  margin: 5px;
 }
 
 .cookie-banner button:hover {
