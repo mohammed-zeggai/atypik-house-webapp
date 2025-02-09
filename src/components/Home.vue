@@ -7,7 +7,7 @@
         >
           <div class="text-center" style="margin-top: 10rem;">
             <h1 class="display-2 mb-4 text-white">
-              Trouvez votre prochaines endroit insolites
+              Trouvez votre prochaine endroit insolite
             </h1>
             <br />
           </div>
@@ -68,7 +68,7 @@
       <br />
 
       <div class="display-4 mb-4 text-center text-white">
-        <h1>Découvrez nos location d’habitats alternatifs</h1>
+        <h2>Découvrez nos locations d’habitats alternatifs</h2>
         <br />
         <br />
       </div>
@@ -105,12 +105,14 @@
             <h2 class="featurette-heading">
               <br />
 
-              <span class="text-muted">VIVEZ UNE ÉXPERIENCE INOUBLIABLE !</span>
+              <span class="text-muted">
+                VIVEZ UNE EXPÉRIENCE INOUBLIABLE !
+              </span>
             </h2>
             <br />
             <p class="lead">
               A 4, 10 ou même 20 mètres de haut, nos cabanes perchées en
-              Bretagne vous offriront le souvenir inoubliable d'un week end
+              Bretagne vous offriront le souvenir inoubliable d'un week-end
               insolite à partager en famille, entre amis ou en amoureux.<br />
               Au petit-matin, hissez le panier du petit-déjeuner en hauteur
               jusqu’à votre terrasse et le soir, laissez-vous tenter par un
@@ -158,9 +160,9 @@
             <h2 class="featurette-heading">
               <br />
 
-              <span class="text-muted"
-                >VENEZ DÉCOUVRIR LES ACTIVITÉS ET LOISIRS À PROXIMITÉ DU PARC
-                NATURE & OCÉAN</span
+              <span class="text-muted">
+                VENEZ DÉCOUVRIR LES ACTIVITÉS ET LOISIRS À PROXIMITÉ DU PARC NATURE & OCÉAN
+              </span
               >
             </h2>
             <br />
