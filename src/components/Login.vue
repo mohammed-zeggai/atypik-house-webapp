@@ -129,39 +129,45 @@ export default {
       // Connecter l'utilisateur
       fetch(`${apiUrl}/api/user/login`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json",},
         body: JSON.stringify(this.user),
       })
-        .then((response) => {
-          if (response.status == 403) {
+      .then(async (response) => {
+        if (!response.ok) {
+          if (response.status === 403) {
             this.badCredentials = true;
+            return; // Arrêter ici car on ne peut pas parser un JSON vide
+          } else {
+            throw new Error(`Erreur serveur: ${response.status}`);
           }
-          return response.json();
-        })
-        .then((data) => {
-            if (data.body) {
-                // Désactiver l'erreur précédente
-                this.badCredentials = false;
-
-                // Stocker le token dans le localStorage
-                localStorage.setItem("token", data.body);
-
-                // Récuperer les données de l'utilistaeur
-                fetch(`${apiUrl}/api/user/byEmail/` + this.user.email, {
-                    method: "GET",
-                    headers: { Authorization: "Bearer " + data.body },
-                })
-                .then((response) => response.json())
-                .then((userData) => {
-                    if (userData.id) {
-                    // L'utilisateur est récupéré
-                    // Stocker le dans le localStorage
-                    localStorage.setItem("user", JSON.stringify(userData));
-                    window.location.reload();
-                    }
-                });
+        }
+        
+        const data = await response.json();
+        
+        if (data.body) {
+          // Désactiver l'erreur précédente
+          this.badCredentials = false;
+          
+          // Stocker le token dans le localStorage
+          localStorage.setItem("token", data.body);
+          
+          // Récuperer les données de l'utilistaeur
+          fetch(`${apiUrl}/api/user/byEmail/` + this.user.email, {
+            method: "GET",
+            headers: { Authorization: "Bearer " + data.body,},
+          })
+          .then((res) => res.json())
+          .then((userData) => {
+            if (userData.id) {
+              localStorage.setItem("user", JSON.stringify(userData));
+              window.location.reload();
             }
-        });
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Erreur pendant le login :", error);
+      });
     },
   },
 };
