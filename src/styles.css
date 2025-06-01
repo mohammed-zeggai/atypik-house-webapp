@@ -46,7 +46,7 @@ html {
 }
 
 .gradient-custom-4 {
-    background-color:#495b2a;
+    background-color:#aaadaf;
     background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
     background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
 }
@@ -80,7 +80,7 @@ html {
 }
 
 .navbar {
-    background-color: #495b2a;
+    background-color: #aaadaf;
 }
 
 .page-footer,
