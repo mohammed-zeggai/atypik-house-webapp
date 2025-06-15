@@ -1,7 +1,4 @@
-import { createSSRApp } from 'vue';
-import App from './App.vue';
-import { createRouter, createWebHistory, createMemoryHistory } from 'vue-router';
-import { createMetaManager } from 'vue-meta';
+// src/routes.js
 
 import Register from './components/Register.vue';
 import Login from './components/Login.vue';
@@ -19,13 +16,9 @@ import MentionsLegales from './components/MentionsLegales.vue';
 import PolitiqueConfidentialite from './components/PolitiqueConfidentialite.vue';
 import QuiSommesNous from './components/QuiSommesNous.vue';
 import RegisterProprietaire from './components/RegisterProprietaire.vue';
-import CookiesConsent from './components/CookiesConsent.vue';
 import CookiesPolicy from './components/CookiesPolicy.vue';
 
-import './styles.css';
-
-// Tes routes extraites dans un tableau
-const routes = [
+export const routes = [
   { path: '/', component: Home },
   { path: '/register', component: Register },
   { path: '/registerProprietaire', component: RegisterProprietaire },
@@ -42,26 +35,5 @@ const routes = [
   { path: '/mentionsLegales', component: MentionsLegales },
   { path: '/politiqueConfidentialite', component: PolitiqueConfidentialite },
   { path: '/qui-sommes-nous', component: QuiSommesNous },
-  { path: '/cookie-policy', component: CookiesPolicy }
+  { path: '/cookie-policy', component: CookiesPolicy },
 ];
-
-export function createApp() {
-  const app = createSSRApp(App);
-
-  const router = createRouter({
-    history: import.meta.env.SSR
-      ? createMemoryHistory() // côté serveur on utilise history en mémoire
-      : createWebHistory(process.env.BASE_URL), // côté client history web normale
-    routes,
-  });
-
-  const metaManager = createMetaManager();
-
-  app.use(router);
-  app.use(metaManager);
-
-  // Enregistre le composant global CookiesConsent (optionnel)
-  app.component('CookiesConsent', CookiesConsent);
-
-  return { app, router, metaManager };
-}
