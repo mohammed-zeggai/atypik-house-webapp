@@ -1,10 +1,27 @@
 import express from 'express';
+import compression from 'compression';
 import { createServer as createViteServer } from 'vite';
 import fs from 'fs';
 import path from 'path';
 
 async function createServer() {
   const app = express();
+
+  // Active la compression gzip pour réduire la taille des réponses HTTP
+  app.use(compression());
+
+  // Sert les fichiers statiques (favicon, images, css, js) avec cache de 30 jours
+  app.use(
+    express.static(path.resolve(__dirname, 'public'), {
+      maxAge: '30d',
+      setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.html')) {
+          // Pas de cache pour les fichiers HTML (pour éviter les contenus obsolètes)
+          res.setHeader('Cache-Control', 'no-cache');
+        }
+      },
+    })
+  );
 
   // Création du serveur Vite en mode middleware SSR
   const vite = await createViteServer({
@@ -14,6 +31,7 @@ async function createServer() {
   // Utiliser le middleware Vite
   app.use(vite.middlewares);
 
+  // Middleware principal pour le SSR
   app.use('*', async (req, res) => {
     try {
       const url = req.originalUrl;
