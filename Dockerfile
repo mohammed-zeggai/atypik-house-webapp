@@ -16,6 +16,7 @@ RUN npm install --legacy-peer-deps
 COPY . .
 
 # build app for production with minification
+RUN ls -la /app
 RUN npm run build
 
 RUN chmod +x ./copy_assets.sh
