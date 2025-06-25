@@ -1,8 +1,26 @@
-import vue from '@vitejs/plugin-vue';
+import vue from '@vitejs/plugin-vue'
 
-export default {
-  plugins: [vue()],
-  ssr: {
-    noExternal: ['vue-meta']
+export default ({ command, ssrBuild }) => {
+  if (ssrBuild) {
+    return {
+      plugins: [vue()],
+      build: {
+        ssr: 'src/entry-server.js',
+        outDir: 'dist/server',
+        rollupOptions: {
+          input: 'src/entry-server.js',
+        },
+      },
+      ssr: {
+        noExternal: ['vue-meta']
+      }
+    }
+  } else {
+    return {
+      plugins: [vue()],
+      build: {
+        outDir: 'dist/client',
+      }
+    }
   }
-};
+}
