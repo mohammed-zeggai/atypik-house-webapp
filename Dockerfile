@@ -22,4 +22,4 @@ RUN chmod +x ./copy_assets.sh
 RUN ./copy_assets.sh
 
 EXPOSE 8080
-CMD [ "http-server", "dist" ]
+CMD ["node", "server.js"]

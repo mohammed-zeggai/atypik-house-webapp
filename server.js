@@ -48,9 +48,11 @@ async function createServerApp() {
     }
   })
 
-  app.listen(3000, () => {
-    console.log('Server running at http://localhost:3000')
+  const PORT = 8080
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`)
   })
+
 }
 
 createServerApp()
