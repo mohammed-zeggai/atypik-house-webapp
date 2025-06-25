@@ -18,8 +18,8 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-RUN chmod +x ./copy_assets.sh
-RUN ./copy_assets.sh
+#RUN chmod +x ./copy_assets.sh
+#RUN ./copy_assets.sh
 
 EXPOSE 8080
 CMD ["node", "server.js"]
