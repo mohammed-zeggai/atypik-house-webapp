@@ -1,51 +1,24 @@
 {
   "name": "atypik-house-webapp",
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve --port=8081",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.js",
+    "serve": "node server.js"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "register-service-worker": "^1.7.1",
-    "vue": "^3.5.11",
+    "vue": "^3.5.17",
+    "vue-router": "^4.0.12",
     "vue-meta": "^3.0.0-alpha.10",
-    "vue-router": "^4.0.12"
+    "@vue/server-renderer": "^3.5.17",
+    "express": "^4.18.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.5.4",
-    "@playwright/test": "^1.42.0",
-    "@types/node": "^20.11.22",
-    "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
-    "@vue/cli-plugin-pwa": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
-    "@vue/compiler-sfc": "^3.0.0",
-    "eslint": "^8.52.0",
-    "eslint-plugin-vue": "^7.0.0"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {
-      "vue/no-unused-components": "off",
-      "no-unused-vars": "off"
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "vite": "^5.2.4",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "@vue/compiler-sfc": "^3.5.17"
+  }
 }

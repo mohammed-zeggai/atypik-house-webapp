@@ -18,21 +18,24 @@ export default {
 
   data() {
     return {
-      // Cette donnée garde la trace de l'affichage de la bannière des cookies
-      showCookieBanner: !localStorage.getItem('cookiesAccepted') && !localStorage.getItem('cookiesRejected')
+      showCookieBanner: true
     };
+  },
+
+  mounted() {
+    // Ici on est côté client, on peut accéder à localStorage
+    const accepted = localStorage.getItem('cookiesAccepted');
+    const rejected = localStorage.getItem('cookiesRejected');
+    this.showCookieBanner = !accepted && !rejected;
   },
 
   methods: {
     acceptCookies() {
-      // Quand l'utilisateur clique sur "Accepter", on cache la bannière
       this.showCookieBanner = false;
-      // Et on enregistre dans le localStorage que l'utilisateur a accepté
       localStorage.setItem('cookiesAccepted', 'true');
     },
 
     rejectCookies() {
-      // Quand l'utilisateur clique sur "Refuser", on cache la bannière et on marque le refus dans le localStorage
       this.showCookieBanner = false;
       localStorage.setItem('cookiesRejected', 'true');
     }
@@ -41,47 +44,4 @@ export default {
 </script>
 
 <style scoped>
-.cookie-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  font-size: 14px;
-}
-
-.cookie-banner .cookie-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row; 
-  gap: 10px; 
-}
-
-.cookie-banner button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 5px;
-}
-
-.cookie-banner button:hover {
-  background-color: #45a049;
-}
-
-.cookie-banner a {
-  color: #ffcc00;
-  text-decoration: none;
-}
-
-.cookie-banner a:hover {
-  text-decoration: underline;
-}
 </style>
