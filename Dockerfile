@@ -22,4 +22,6 @@ RUN npm run build
 #RUN ./copy_assets.sh
 
 EXPOSE 8080
+
+# Démarre le serveur Node (Express + SSR)
 CMD ["node", "server.js"]
