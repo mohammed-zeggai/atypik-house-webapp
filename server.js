@@ -1,38 +1,43 @@
 import express from 'express'
-import { createServer as createViteServer } from 'vite'
+import { createServer } from 'vite'
 import { readFile } from 'fs/promises'
 import { resolve } from 'path'
+import { pathToFileURL } from 'url'
 
-async function createServer() {
+async function createServerApp() {
   const app = express()
   const root = process.cwd()
 
-  // Initialise Vite en mode middleware SSR
-  const vite = await createViteServer({
+  // Crée le serveur Vite en mode middleware SSR
+  const vite = await createServer({
     root,
     server: { middlewareMode: 'ssr' },
-    appType: 'custom'
+    appType: 'custom',
   })
 
-  // Utilisation des middlewares Vite (pour hot reload, etc.)
+  // Utilise Vite comme middleware
   app.use(vite.middlewares)
 
-  // SSR pour toutes les routes
+  // Toutes les requêtes passent ici pour le rendu SSR
   app.use('*', async (req, res) => {
     try {
       const url = req.originalUrl
 
-      // Lis index.html à la racine du projet
+      // Lis le template HTML
       let template = await readFile(resolve(root, 'index.html'), 'utf-8')
+
+      // Transforme le template avec Vite (injecte les scripts)
       template = await vite.transformIndexHtml(url, template)
 
-      // Charge le module SSR (entry-server.js)
-      const { render } = await vite.ssrLoadModule('/src/entry-server.js')
+      // Charge le module serveur (render)
+      // Utiliser pathToFileURL pour éviter les problèmes de chemin sur Windows
+      const serverEntryPath = pathToFileURL(resolve(root, 'src/entry-server.js')).href
+      const { render } = await vite.ssrLoadModule('src/entry-server.js')
 
-      // Rend l'application en HTML
+      // Rend le contenu de l'app
       const { appContent } = await render(url)
 
-      // Injecte le contenu dans le template
+      // Injecte dans le template
       const html = template.replace('<!--ssr-outlet-->', appContent)
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
@@ -44,8 +49,8 @@ async function createServer() {
   })
 
   app.listen(3000, () => {
-    console.log('Serveur en ligne : http://localhost:3000')
+    console.log('Server running at http://localhost:3000')
   })
 }
 
-createServer()
+createServerApp()
