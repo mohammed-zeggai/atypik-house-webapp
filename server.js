@@ -7,32 +7,32 @@ async function createServer() {
   const app = express()
   const root = process.cwd()
 
-  // Crée le serveur vite en mode middleware SSR
+  // Initialise Vite en mode middleware SSR
   const vite = await createViteServer({
     root,
     server: { middlewareMode: 'ssr' },
-    appType: 'custom',
+    appType: 'custom'
   })
 
-  // Utilise vite comme middleware
+  // Utilisation des middlewares Vite (pour hot reload, etc.)
   app.use(vite.middlewares)
 
-  // Toutes les requêtes passent ici pour SSR
+  // SSR pour toutes les routes
   app.use('*', async (req, res) => {
     try {
       const url = req.originalUrl
-      // Lis le template html
+
+      // Lis index.html à la racine du projet
       let template = await readFile(resolve(root, 'index.html'), 'utf-8')
-      // Transforme le template avec vite (injecte les scripts)
       template = await vite.transformIndexHtml(url, template)
 
-      // Charge le module serveur (render)
+      // Charge le module SSR (entry-server.js)
       const { render } = await vite.ssrLoadModule('/src/entry-server.js')
 
-      // Rend le contenu
+      // Rend l'application en HTML
       const { appContent } = await render(url)
 
-      // Injecte dans le template
+      // Injecte le contenu dans le template
       const html = template.replace('<!--ssr-outlet-->', appContent)
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
@@ -44,7 +44,7 @@ async function createServer() {
   })
 
   app.listen(3000, () => {
-    console.log('Server running at http://localhost:3000')
+    console.log('Serveur en ligne : http://localhost:3000')
   })
 }
 
