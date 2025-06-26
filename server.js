@@ -8,18 +8,6 @@ async function createServerApp() {
   const app = express()
   const root = process.cwd()
 
-  // Liste des hôtes autorisés
-  const allowedHosts = ['localhost', '127.0.0.1', 'f2i-dev06-mz-ak-yy-ae.fr']
-
-  // Middleware pour bloquer les hôtes non autorisés
-  app.use((req, res, next) => {
-    const hostHeader = req.headers.host?.split(':')[0] // Ignore le port
-    if (!allowedHosts.includes(hostHeader)) {
-      return res.status(403).send(`Blocked request. This host ("${hostHeader}") is not allowed.`)
-    }
-    next()
-  })
-
   // Crée le serveur Vite en mode middleware SSR
   const vite = await createServer({
     root,
@@ -38,16 +26,18 @@ async function createServerApp() {
       // Lis le template HTML
       let template = await readFile(resolve(root, 'index.html'), 'utf-8')
 
-      // Transforme le template avec Vite
+      // Transforme le template avec Vite (injecte les scripts)
       template = await vite.transformIndexHtml(url, template)
 
-      // Charge le module de rendu SSR
+      // Charge le module serveur (render)
+      // Utiliser pathToFileURL pour éviter les problèmes de chemin sur Windows
       const serverEntryPath = pathToFileURL(resolve(root, 'src/entry-server.js')).href
       const { render } = await vite.ssrLoadModule('src/entry-server.js')
 
+      // Rend le contenu de l'app
       const { appContent } = await render(url)
 
-      // Injecte le rendu dans le HTML
+      // Injecte dans le template
       const html = template.replace('<!--ssr-outlet-->', appContent)
 
       res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
@@ -60,8 +50,9 @@ async function createServerApp() {
 
   const PORT = 8080
   app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`)
+    console.log(Server running at http://localhost:${PORT})
   })
+
 }
 
 createServerApp()

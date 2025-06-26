@@ -15,8 +15,7 @@ export default ({ command, ssrBuild }) => {
         noExternal: ['vue-meta']
       },
       server: {
-        middlewareMode: true,
-        allowedHosts: ['f2i-dev06-mz-ak-yy-ae.fr']
+        host:true
       }
     }
   } else {
