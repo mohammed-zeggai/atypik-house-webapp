@@ -13,6 +13,10 @@ export default ({ command, ssrBuild }) => {
       },
       ssr: {
         noExternal: ['vue-meta']
+      },
+      server: {
+        middlewareMode: true,
+        allowedHosts: ['f2i-dev06-mz-ak-yy-ae.fr']
       }
     }
   } else {

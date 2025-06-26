@@ -42,8 +42,8 @@ async function createServerApp() {
       template = await vite.transformIndexHtml(url, template)
 
       // Charge le module de rendu SSR
-      const serverEntryPath = pathToFileURL(resolve(root, 'app/dist/server/entry-server.js')).href
-      const { render } = await vite.ssrLoadModule('/app/dist/server/entry-server.js')
+      const serverEntryPath = pathToFileURL(resolve(root, 'src/entry-server.js')).href
+      const { render } = await vite.ssrLoadModule('src/entry-server.js')
 
       const { appContent } = await render(url)
 
