@@ -2,4 +2,4 @@
 
 http-server dist/client &
 
-node server.js 
+node /app/server.js 
