@@ -1,7 +1,7 @@
 FROM node:18
 
 # install simple http server for serving static content
-#RUN npm install -g http-server
+RUN npm install -g http-server
 
 # make the 'app' folder the current working directory
 WORKDIR /app
@@ -18,10 +18,11 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-#RUN chmod +x ./copy_assets.sh
-#RUN ./copy_assets.sh
+RUN chmod +x ./copy_assets.sh
+RUN chmod +x ./start.sh
+RUN ./copy_assets.sh
 
-EXPOSE 8080
+EXPOSE 3000 8080
 
 # Démarre le serveur Node (Express + SSR)
-CMD ["node", "server.js"]
+CMD ["./start.sh"]
