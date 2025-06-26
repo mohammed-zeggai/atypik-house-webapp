@@ -19,7 +19,7 @@ export default ({ command, ssrBuild }) => {
         port: 8080,
         configureServer: (server) => {
           server.middlewares.use((req, res, next) => {
-            const allowedHosts = ['atypik-house-ssr-web-app-vyxof.ondigitalocean.app', 'f2i-dev06-mz-ak-yy-ae.fr']
+            const allowedHosts = ['https://atypik-house-ssr-web-app-vyxof.ondigitalocean.app', 'https://f2i-dev06-mz-ak-yy-ae.fr', 'http://localhost']
             const hostHeader = req.headers.host?.split(':')[0]
             if (!allowedHosts.includes(hostHeader || '')) {
               res.statusCode = 403
