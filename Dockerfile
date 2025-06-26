@@ -22,7 +22,6 @@ RUN chmod +x ./copy_assets.sh
 RUN chmod +x ./start.sh
 RUN ./copy_assets.sh
 
-EXPOSE 3000 8080
+EXPOSE 8080
+CMD [ "http-server", "dist" ]
 
-# Démarre le serveur Node (Express + SSR)
-CMD ["./start.sh"]
