@@ -15,7 +15,7 @@ export default ({ command, ssrBuild }) => {
         noExternal: ['vue-meta']
       },
       server: {
-        allowedHosts: 'all'
+        allowedHosts: true
       }
     }
   } else {
