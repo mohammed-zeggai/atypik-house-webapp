@@ -23,5 +23,5 @@ RUN chmod +x ./start.sh
 RUN ./copy_assets.sh
 
 EXPOSE 8080
-CMD [ "http-server", "dist" ]
+CMD [ "http-server", "dist/client" ]
 
