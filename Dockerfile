@@ -18,10 +18,10 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-RUN chmod +x ./copy_assets.sh
-RUN chmod +x ./start.sh
-RUN ./copy_assets.sh
+COPY start.sh /app/start.sh
+RUN chmod +x /app/start.sh
 
-EXPOSE 8080
-CMD [ "http-server", "dist/client" ]
+EXPOSE 3000 8080
 
+# Démarre le serveur Node (Express + SSR)
+CMD ["sh", "/app/start.sh"]
