@@ -21,7 +21,7 @@ RUN npm run build
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh
 
-EXPOSE 3000 8080
+EXPOSE 8080
 
 # Démarre le serveur Node (Express + SSR)
 CMD ["sh", "/app/start.sh"]

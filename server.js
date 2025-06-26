@@ -31,8 +31,8 @@ async function createServerApp() {
 
       // Charge le module serveur (render)
       // Utiliser pathToFileURL pour éviter les problèmes de chemin sur Windows
-      const serverEntryPath = pathToFileURL(resolve(root, 'src/entry-server.js')).href
-      const { render } = await vite.ssrLoadModule('src/entry-server.js')
+      const serverEntryPath = pathToFileURL(resolve(root, '/app/dist/server/entry-server.js')).href
+      const { render } = await vite.ssrLoadModule('/app/dist/server/entry-server.js')
 
       // Rend le contenu de l'app
       const { appContent } = await render(url)
@@ -48,7 +48,7 @@ async function createServerApp() {
     }
   })
 
-  const PORT = 3000
+  const PORT = 8080
   app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`)
   })
