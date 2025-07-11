@@ -41,7 +41,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Bien trouvées</h5>
+              <h3 class="modal-title">Bien trouvées</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -58,7 +58,7 @@
                   </div>
                 </div>
 
-                <h6 v-if="!searchResults.length">Aucun Résultat Trouvé!</h6>
+                <h3 v-if="!searchResults.length">Aucun Résultat Trouvé!</h3>
               </section>
             </div>
           </div>
