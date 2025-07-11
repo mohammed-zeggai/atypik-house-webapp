@@ -6,9 +6,9 @@
           class="mask rgba-black-light d-flex justify-content-center align-items-center"
         >
           <div class="text-center" style="margin-top: 10rem;">
-            <h1 class="display-2 mb-4 text-white">
+            <h2 class="display-2 mb-4 text-white">
               Trouvez votre prochaine endroit insolite
-            </h1>
+            </h2>
             <br />
           </div>
         </div>
@@ -41,7 +41,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Bien trouvées</h5>
+              <h3 class="modal-title">Bien trouvées</h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -58,7 +58,7 @@
                   </div>
                 </div>
 
-                <h6 v-if="!searchResults.length">Aucun Résultat Trouvé!</h6>
+                <h3 v-if="!searchResults.length">Aucun Résultat Trouvé!</h3>
               </section>
             </div>
           </div>
@@ -76,9 +76,9 @@
 
     <section class="py-5 container">
       <div class="row py-lg-4">
-        <h2 class="display-4 mb-4 text-center text-dark">
+        <h3 class="display-4 mb-4 text-center text-dark">
           Vous souhaitez vivre une expérience insolite ?
-        </h2>
+        </h3>
         <h3 class="display-4 mb-4 text-center text-dark">
           Nous vous proposons différents types d'hébergements qui vous
           laisseront des souvenirs inoubliables.
@@ -102,13 +102,13 @@
         <div class="row featurette">
           <div class="col-md-7">
             <br />
-            <h2 class="featurette-heading">
+            <h4 class="featurette-heading">
               <br />
 
               <span class="text-muted">
                 VIVEZ UNE EXPÉRIENCE INOUBLIABLE !
               </span>
-            </h2>
+            </h4>
             <br />
             <p class="lead">
               A 4, 10 ou même 20 mètres de haut, nos cabanes perchées en
@@ -132,6 +132,7 @@
               width="500"
               height="500"
               src="https://images.pexels.com/photos/9209878/pexels-photo-9209878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              alt="Cabane perchée en pleine nature"
               role="img"
               preserveAspectRatio="xMidYMid slice"
               focusable="false"
@@ -149,6 +150,7 @@
               width="500"
               height="500"
               src="https://images.pexels.com/photos/6526181/pexels-photo-6526181.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              alt="Cabane perchée en pleine nature"
               role="img"
               preserveAspectRatio="xMidYMid slice"
               focusable="false"
@@ -157,14 +159,14 @@
           </div>
           <div class="col-md-7">
             <br />
-            <h2 class="featurette-heading">
+            <h4 class="featurette-heading">
               <br />
 
               <span class="text-muted">
                 VENEZ DÉCOUVRIR LES ACTIVITÉS ET LOISIRS À PROXIMITÉ DU PARC NATURE & OCÉAN
               </span
               >
-            </h2>
+            </h4>
             <br />
             <p class="lead">
               126 km de plages de sable fin, océanes ou lacustres, abritent une
@@ -187,11 +189,11 @@
 
           <div class="col-md-7">
             <br />
-            <h2 class="featurette-heading">
+            <h4 class="featurette-heading">
               <br />
 
               <span class="text-muted">BALADE ET DÉCOUVERTES</span>
-            </h2>
+            </h4>
             <br />
             <p class="lead">
               Entre lac, océan et vignobles des châteaux de rêve, un univers à
@@ -220,6 +222,7 @@
               width="500"
               height="500"
               src="https://images.pexels.com/photos/1800387/pexels-photo-1800387.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              alt="Cabane perchée en pleine nature"
               role="img"
               aria-label="Placeholder: 500x500"
               preserveAspectRatio="xMidYMid slice"

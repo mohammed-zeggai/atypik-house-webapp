@@ -11,7 +11,7 @@
             <div class="position-relative snipimage" >
               <img
                 :src="reservation.location.image || 'https://images.pexels.com/photos/1673994/pexels-photo-1673994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260'"
-                class="rounded img-fluid w-100 img-responsive"
+                alt="Cabane perchée en pleine nature" class="rounded img-fluid w-100 img-responsive"
               />
               <router-link :to="'/location/' + reservation.location.id">
                 {{ reservation.location.titre }}

@@ -11,7 +11,7 @@
             <img
               class="img-location mb-2"
               :src="location.image || 'https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg'"
-              alt="User Avatar"
+              alt="Image de la location"
             />
             <input
               class="form-control"

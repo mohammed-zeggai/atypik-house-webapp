@@ -190,7 +190,7 @@
         <div class="col-sm-6 px-0 d-none d-sm-block">
           <img
             src="https://images.pexels.com/photos/8001019/pexels-photo-8001019.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            alt="Login image"
+            alt="Cabane perchée en pleine nature"
             class="w-100 vh-100"
             style="object-fit: cover; object-position: left"
           />

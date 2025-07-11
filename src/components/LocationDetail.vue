@@ -6,7 +6,7 @@
         {{ location.titre }}</strong> <br />
     
         <img
-          :src="location.image || 'https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg'" style="width: 500px"
+          :src="location.image || 'https://pastel-immo.fr/wp-content/uploads/2019/11/11-Les-diffe%CC%81rents-types-dagence-immobilie%CC%80re.jpg'" alt="Image de la location" style="width: 500px"
         /><br />
     
         <p class="card-text">Description : {{ location.description }}</p>

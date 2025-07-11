@@ -12,7 +12,7 @@
               <img
                 :src="user.image || 'http://bootdey.com/img/Content/avatar/avatar1.png'"
                 class="rounded img-fluid w-100 img-responsive"
-                style="width: 30px !important;"
+                alt="Image avatar" style="width: 30px !important;"
               />
             </div>
 

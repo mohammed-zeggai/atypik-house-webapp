@@ -18,7 +18,7 @@
                             <h2 class="mb-0"> 
                               
                                     <div class="d-flex align-items-center justify-content-between"> <span>Credit card</span>
-                                        <div class="icons"> <img src="https://i.imgur.com/2ISgYja.png" width="60"> <img src="https://i.imgur.com/W1vtnOV.png" width="30"> <img src="https://i.imgur.com/35tC99g.png" width="30"> <img src="https://i.imgur.com/2ISgYja.png" width="60"> </div>
+                                        <div class="icons"> <img src="https://i.imgur.com/2ISgYja.png" alt="Image de payement" width="60"> <img src="https://i.imgur.com/W1vtnOV.png" alt="Image de payement" width="30"> <img src="https://i.imgur.com/35tC99g.png" alt="Image de payement" width="30"> <img alt="Image de payement" src="https://i.imgur.com/2ISgYja.png" width="60"> </div>
                                     </div>
                                 </h2>
                         </div>
