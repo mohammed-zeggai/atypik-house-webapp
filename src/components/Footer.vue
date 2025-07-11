@@ -28,9 +28,9 @@
         <!-- Grid column -->
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
-          <h5 class="text-uppercase fw-bold mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-gem me-3"></i>Atypik House
-          </h5>
+          </h6>
           <p>
             Pour passer des vacances inoubliables, il est important de bien choisir sa location !
             Contactez-nous pour trouver votre AtypikHouse à louer et réservez dès maintenant votre location de vacances auprès de notre agence.
@@ -41,9 +41,9 @@
         <!-- Grid column -->
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <h5 class="text-uppercase fw-bold mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
             Liens direct
-          </h5>
+          </h6>
           <li>
             <router-link to="/PolitiqueConfidentialite" style="color: black" href="">Politique de confidentialité</router-link>
           </li>
@@ -73,9 +73,9 @@
         <!-- Grid column -->
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <h5 class="text-uppercase fw-bold mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
             Êtes-vous propriètaire
-          </h5>
+          </h6>
            <p>
              Si vous êtes propriètaire d'un bien immobilier que vous souhaitez mettre en location saisonnière, contactez notre agence pour louer en toute sérénité.
            </p>
@@ -85,9 +85,9 @@
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
-          <h5 class="text-uppercase fw-bold mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
             Contact
-          </h5>
+          </h6>
           <p><i class="fas fa-home me-3"></i> 6 Rue Napoléon, 60350 Pierrefonds, France</p>
           <p>
             <i class="fas fa-envelope me-3"></i>

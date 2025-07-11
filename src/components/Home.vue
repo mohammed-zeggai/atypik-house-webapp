@@ -41,7 +41,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h3 class="modal-title">Bien trouvées</h3>
+              <h5 class="modal-title">Bien trouvées</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -58,7 +58,7 @@
                   </div>
                 </div>
 
-                <h3 v-if="!searchResults.length">Aucun Résultat Trouvé!</h3>
+                <h6 v-if="!searchResults.length">Aucun Résultat Trouvé!</h6>
               </section>
             </div>
           </div>
@@ -76,9 +76,9 @@
 
     <section class="py-5 container">
       <div class="row py-lg-4">
-        <h3 class="display-4 mb-4 text-center text-dark">
+        <h2 class="display-4 mb-4 text-center text-dark">
           Vous souhaitez vivre une expérience insolite ?
-        </h3>
+        </h2>
         <h3 class="display-4 mb-4 text-center text-dark">
           Nous vous proposons différents types d'hébergements qui vous
           laisseront des souvenirs inoubliables.
@@ -102,13 +102,9 @@
         <div class="row featurette">
           <div class="col-md-7">
             <br />
-            <h4 class="featurette-heading">
-              <br />
-
-              <span class="text-muted">
+            <h2 class="featurette-heading text-muted">
                 VIVEZ UNE EXPÉRIENCE INOUBLIABLE !
-              </span>
-            </h4>
+            </h2>
             <br />
             <p class="lead">
               A 4, 10 ou même 20 mètres de haut, nos cabanes perchées en
@@ -159,14 +155,10 @@
           </div>
           <div class="col-md-7">
             <br />
-            <h4 class="featurette-heading">
+            <h2 class="featurette-heading text-muted">
               <br />
-
-              <span class="text-muted">
                 VENEZ DÉCOUVRIR LES ACTIVITÉS ET LOISIRS À PROXIMITÉ DU PARC NATURE & OCÉAN
-              </span
-              >
-            </h4>
+            </h2>
             <br />
             <p class="lead">
               126 km de plages de sable fin, océanes ou lacustres, abritent une
@@ -188,13 +180,11 @@
           <br />
 
           <div class="col-md-7">
-            <br />
-            <h4 class="featurette-heading">
-              <br />
-
-              <span class="text-muted">BALADE ET DÉCOUVERTES</span>
-            </h4>
-            <br />
+             <br />
+             <h2 class="featurette-heading text-muted">
+                BALADE ET DÉCOUVERTES
+             </h2>
+             <br />
             <p class="lead">
               Entre lac, océan et vignobles des châteaux de rêve, un univers à
               découvrir : les vins du Médoc.<br />
