@@ -6,9 +6,9 @@
           class="mask rgba-black-light d-flex justify-content-center align-items-center"
         >
           <div class="text-center" style="margin-top: 10rem;">
-            <h2 class="display-2 mb-4 text-white">
+            <h1 class="display-2 mb-4 text-white">
               Trouvez votre prochaine endroit insolite
-            </h2>
+            </h1>
             <br />
           </div>
         </div>
