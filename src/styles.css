@@ -66,6 +66,7 @@ html {
     height: 55px;
     margin-right: 8rem;
     margin-left: 12rem;
+    object-fit: contain;
 }
 
 .bell-icon-toggle::after {
