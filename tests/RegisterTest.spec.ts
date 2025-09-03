@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('http://localhost:8081/');
+  await page.goto('http://localhost:8080/');
   await page.getByRole('button', { name: 'Mon compte' }).click();
-  await page.getByRole('link', { name: 'Créer un compte' }).click();
+  await page.getByRole('link', { name: 'Créer un compte locataire' }).click();
   await page.getByPlaceholder('Nom', { exact: true }).click();
   await page.getByPlaceholder('Nom', { exact: true }).press('CapsLock');
   await page.getByPlaceholder('Nom', { exact: true }).fill('T');
